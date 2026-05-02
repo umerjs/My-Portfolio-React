@@ -8,7 +8,7 @@ Welcome to my personal portfolio! This is a fully responsive, modern website bui
 
 ## 🔗 Live Preview
 
-👉 [Visit Live Site](https://umer-memon.netlify.app/)
+👉 [Visit Live Site](https://umer-memon.vercel.app/)
 
 ---
 
