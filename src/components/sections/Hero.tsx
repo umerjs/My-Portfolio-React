@@ -49,7 +49,7 @@ export function Hero() {
             </a>
           </motion.div>
           <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-            <a href="/_legacy/images/Umer_Memon_Resume.docx" download>
+            <a href="/assets/Umer_Memon_Resume.docx" download>
               <Button variant="outline" size="lg" className="rounded-full px-8 h-14 text-base bg-transparent border-border/50 hover:bg-white/5 hover:border-primary/50 transition-all">
                 <Download className="mr-2 h-5 w-5" /> Resume
               </Button>
