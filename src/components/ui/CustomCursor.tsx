@@ -12,7 +12,12 @@ export function CustomCursor() {
 
     const handleMouseOver = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
-      if (target.tagName.toLowerCase() === 'a' || target.tagName.toLowerCase() === 'button' || target.closest('button') || target.closest('a')) {
+      if (
+        target.tagName.toLowerCase() === "a" ||
+        target.tagName.toLowerCase() === "button" ||
+        target.closest("button") ||
+        target.closest("a")
+      ) {
         setIsHovering(true);
       } else {
         setIsHovering(false);
@@ -30,10 +35,10 @@ export function CustomCursor() {
 
   // Hide default cursor
   useEffect(() => {
-    document.body.style.cursor = 'none';
-    const elements = document.querySelectorAll('a, button');
+    document.body.style.cursor = "none";
+    const elements = document.querySelectorAll("a, button");
     elements.forEach((el) => {
-      (el as HTMLElement).style.cursor = 'none';
+      (el as HTMLElement).style.cursor = "none";
     });
   }, []);
 
@@ -41,20 +46,22 @@ export function CustomCursor() {
     <>
       <motion.div
         className="fixed top-0 left-0 w-3 h-3 bg-primary rounded-full pointer-events-none z-[100] mix-blend-screen"
-        animate={{ 
-          x: mousePosition.x - 6, 
+        animate={{
+          x: mousePosition.x - 6,
           y: mousePosition.y - 6,
-          scale: isHovering ? 2.5 : 1
+          scale: isHovering ? 2.5 : 1,
         }}
         transition={{ type: "tween", ease: "backOut", duration: 0.1 }}
       />
       <motion.div
         className="fixed top-0 left-0 w-12 h-12 border border-primary/50 rounded-full pointer-events-none z-[99] flex items-center justify-center"
-        animate={{ 
-          x: mousePosition.x - 24, 
+        animate={{
+          x: mousePosition.x - 24,
           y: mousePosition.y - 24,
           scale: isHovering ? 1.5 : 1,
-          backgroundColor: isHovering ? "rgba(var(--primary), 0.1)" : "transparent"
+          backgroundColor: isHovering
+            ? "rgba(var(--primary), 0.1)"
+            : "transparent",
         }}
         transition={{ type: "tween", ease: "backOut", duration: 0.3 }}
       />
