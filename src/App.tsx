@@ -6,6 +6,7 @@ import { TechStack } from "./components/sections/TechStack";
 import { Portfolio } from "./components/sections/Portfolio";
 import { Experience } from "./components/sections/Experience";
 import { Contact } from "./components/sections/Contact";
+import { Footer } from "./components/sections/Footer";
 import { CustomCursor } from "./components/ui/CustomCursor";
 
 function App() {
@@ -57,14 +58,7 @@ function App() {
           <Contact />
         </main>
 
-        <footer className="relative z-10 py-8 text-center text-sm text-muted-foreground border-t border-border/50">
-          <div className="max-w-6xl mx-auto px-4">
-            <p>
-              © {new Date().getFullYear()} Umer Memon. All rights reserved.
-              Crafted with Framer Motion & Tailwind.
-            </p>
-          </div>
-        </footer>
+        <Footer />
       </div>
     </Router>
   );
