@@ -17,12 +17,12 @@ export function Contact() {
     setIsSubmitting(true)
     
     // Replace these with your actual EmailJS credentials
-    const SERVICE_ID = "YOUR_SERVICE_ID"
-    const TEMPLATE_ID = "YOUR_TEMPLATE_ID"
-    const PUBLIC_KEY = "YOUR_PUBLIC_KEY"
+    const SERVICE_ID = "service_ibl35r6"
+    const TEMPLATE_ID = "template_9nz4zqm"
+    const PUBLIC_KEY = "0ZLI95-tnsXhNFshV"
 
     try {
-      if (SERVICE_ID !== "YOUR_SERVICE_ID") {
+      if (SERVICE_ID !== "service_ibl35r6") {
         await emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, e.currentTarget, PUBLIC_KEY)
       } else {
         // Simulate API call for demonstration purposes if placeholders are kept
