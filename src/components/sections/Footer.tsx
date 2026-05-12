@@ -8,7 +8,6 @@ import {
 } from "lucide-react";
 
 export function Footer() {
-  const currentYear = new Date().getFullYear();
 
   return (
     <footer className="relative z-10 border-t border-border/50 bg-background/30 backdrop-blur-sm">
