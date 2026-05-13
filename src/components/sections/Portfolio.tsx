@@ -11,7 +11,7 @@ const projects = [
     tags: ["E-Commerce", "HTML/CSS"],
     color: "from-blue-500/20 to-purple-500/20",
     link: "https://dilsebuy.netlify.app",
-    image: "/assets/dilsebuy.png",
+    image: "/src/assets/dilsebuy.png",
   },
   {
     title: "Calculator",
@@ -20,7 +20,7 @@ const projects = [
     tags: ["Tool", "JavaScript"],
     color: "from-emerald-500/20 to-teal-500/20",
     link: "https://calculatorbyumer.netlify.app",
-    image: "/assets/calculator.png",
+    image: "/src/assets/calculator.png",
   },
   {
     title: "Quiz App",
@@ -29,7 +29,7 @@ const projects = [
     tags: ["Interactive", "Tailwind"],
     color: "from-orange-500/20 to-red-500/20",
     link: "https://quizzappbyumer.netlify.app",
-    image: "/assets/quizzapp.png",
+    image: "/src/assets/quizzapp.png",
   },
   {
     title: "Car Website",
@@ -38,7 +38,7 @@ const projects = [
     tags: ["Showcase", "Responsive"],
     color: "from-slate-500/20 to-gray-500/20",
     link: "https://carexperts.netlify.app/",
-    image: "/assets/car website.png",
+    image: "/src/assets/car website.png",
   },
   {
     title: "Starbucks Clone",
@@ -47,7 +47,7 @@ const projects = [
     tags: ["Clone", "CSS"],
     color: "from-green-500/20 to-emerald-500/20",
     link: "https://starcoffee-by-umer.netlify.app/",
-    image: "/assets/starbucks.png",
+    image: "/src/assets/starbucks.png",
   },
   {
     title: "Chess Board",
@@ -56,7 +56,7 @@ const projects = [
     tags: ["Game", "CSS Grid"],
     color: "from-yellow-500/20 to-amber-500/20",
     link: "https://chessbyumer.netlify.app/",
-    image: "/assets/chess board.png",
+    image: "/src/assets/chess board.png",
   },
 ];
 

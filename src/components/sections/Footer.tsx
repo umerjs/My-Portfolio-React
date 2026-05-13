@@ -23,7 +23,9 @@ export function Footer() {
           >
             <div className="flex items-center gap-2 mb-4">
               <Code2 className="w-6 h-6 text-primary" />
-              <h3 className="text-xl font-bold">Umer.Dev</h3>
+              <a href="https://umer-memon.vercel.app" className="text-xl font-bold no-underline hover:text-primary">
+                Umer.Dev
+              </a>
             </div>
             <p className="text-muted-foreground leading-relaxed">
               Passionate full-stack engineer based in Karachi, Pakistan. 

@@ -1,11 +1,12 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Sparkles, Download, MessageSquare } from "lucide-react";
 import { Button } from "../ui/button";
+import HangingCard from "@/components/ui/HangingCard";
 
 export function Hero() {
   return (
     <section
-      id="about"
+      id="home"
       className="min-h-[85vh] flex flex-col md:flex-row items-center justify-between pt-20 relative gap-12"
     >
       <motion.div
@@ -25,7 +26,6 @@ export function Hero() {
         </motion.div>
 
         <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter mb-6 leading-[1.1]">
-          Hi, I'm <br />
           <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
             Umer Memon
           </span>
@@ -62,7 +62,7 @@ export function Hero() {
             </a>
           </motion.div>
           <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-            <a href="/assets/Umer_Memon_Resume.docx" download>
+            <a href="/src/assets/Umer_Memon_Resume.docx" download>
               <Button
                 variant="outline"
                 size="lg"
@@ -136,53 +136,7 @@ export function Hero() {
         </motion.div>
       </motion.div>
 
-      {/* Floating Profile Picture */}
-      <motion.div
-        initial={{ opacity: 0, scale: 0.8 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 1, type: "spring", bounce: 0.4 }}
-        className="relative flex-1 hidden md:flex justify-center"
-      >
-        <div className="relative w-72 h-72 lg:w-96 lg:h-96 rounded-full border-4 border-primary/20 p-2 overflow-hidden shadow-[0_0_100px_rgba(var(--primary),0.2)]">
-          <img
-            src="https://avatars.githubusercontent.com/u/178928829?v=4"
-            alt="Umer Memon"
-            className="w-full h-full object-cover rounded-full filter grayscale hover:grayscale-0 transition-all duration-700"
-          />
-        </div>
-
-        {/* Floating Stat Cards */}
-        <motion.div
-          animate={{ y: [0, -10, 0] }}
-          transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute bottom-4 left-4 lg:-bottom-6 lg:-left-6 bg-background/80 backdrop-blur-md border border-border/50 p-4 lg:p-6 rounded-2xl shadow-xl flex flex-col items-center"
-        >
-          <span className="text-3xl lg:text-4xl font-bold text-primary">
-            2+
-          </span>
-          <span className="text-xs lg:text-sm font-medium text-muted-foreground uppercase tracking-wider">
-            Years Exp
-          </span>
-        </motion.div>
-
-        <motion.div
-          animate={{ y: [0, 10, 0] }}
-          transition={{
-            duration: 5,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: 1,
-          }}
-          className="absolute top-4 right-4 lg:-top-6 lg:-right-6 bg-background/80 backdrop-blur-md border border-border/50 p-4 lg:p-6 rounded-2xl shadow-xl flex flex-col items-center"
-        >
-          <span className="text-3xl lg:text-4xl font-bold text-accent">
-            42+
-          </span>
-          <span className="text-xs lg:text-sm font-medium text-muted-foreground uppercase tracking-wider">
-            Projects
-          </span>
-        </motion.div>
-      </motion.div>
+      <HangingCard />
     </section>
   );
 }

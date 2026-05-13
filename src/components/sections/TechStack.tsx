@@ -21,7 +21,7 @@ const techStack = [
   },
   {
     category: "Database & Deploy",
-    items: ["MongoDB", "Vercel", "Netlify"],
+    items: ["MongoDB", "Vercel", "Netlify", "Supabase"],
     color:
       "group-hover:border-emerald-500/50 group-hover:shadow-emerald-500/20",
   },

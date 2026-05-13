@@ -2,6 +2,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Navbar } from "./components/layout/Navbar";
 import { Hero } from "./components/sections/Hero";
+import { About } from "./components/sections/About";
 import { TechStack } from "./components/sections/TechStack";
 import { Portfolio } from "./components/sections/Portfolio";
 import { Experience } from "./components/sections/Experience";
@@ -52,6 +53,7 @@ function App() {
 
         <main className="flex-1 relative z-10 w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-12 space-y-32">
           <Hero />
+          <About />
           <TechStack />
           <Portfolio />
           <Experience />
