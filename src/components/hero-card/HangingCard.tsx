@@ -1,39 +1,10 @@
-/**
- * HangingCard — The cinematic hero component that orchestrates the entire
- * hanging developer ID badge experience.
- *
- * Architecture:
- * ┌─────────────────────────────────────────────┐
- * │  Perspective Container (1200px depth)        │
- * │  ┌───────────────────────────────────────┐   │
- * │  │  AmbientGlow (atmospheric backlight)  │   │
- * │  │  ┌─────────────────────────────────┐  │   │
- * │  │  │  Rope (anchor → rope → clasp)  │  │   │
- * │  │  │  ┌───────────────────────────┐  │  │   │
- * │  │  │  │  CardBody (tilts on Y/X)  │  │  │   │
- * │  │  │  │  ├── DepthLayer           │  │  │   │
- * │  │  │  │  ├── CardFace             │  │  │   │
- * │  │  │  │  └── ShineOverlay         │  │  │   │
- * │  │  │  └───────────────────────────┘  │  │   │
- * │  │  └─────────────────────────────────┘  │   │
- * │  └───────────────────────────────────────┘   │
- * └─────────────────────────────────────────────┘
- *
- * All 3D illusion is achieved via:
- * - CSS perspective + rotateX/Y transforms
- * - Stacked offset layers for thickness
- * - Dynamic shadows opposite to tilt
- * - Moving specular highlight
- * - Spring-based mouse tracking via Framer Motion values
- *
- * NO Three.js, WebGL, or Canvas is used.
- */
-
 import { motion } from 'framer-motion';
 import { useMouseTilt } from './useMouseTilt';
 import { Rope } from './Rope';
 import { CardBody } from './CardBody';
 import { AmbientGlow } from './AmbientGlow';
+// QR code image for the hanging card (replace with your actual QR asset)
+import qrCodeImg from "@/assets/Linkedin.png";
 import {
   PERSPECTIVE_PX,
   IDLE_SWAY_DURATION,
@@ -60,6 +31,15 @@ export default function HangingCard({ className = '' }: HangingCardProps) {
     >
       {/* ─── Ambient atmospheric glow ─── */}
       <AmbientGlow mouseX={mouseX} mouseY={mouseY} />
+
+      {/* ─── QR Code overlay (bottom‑right corner) ─── */}
+      <div className="absolute bottom-4 right-4 w-20 h-20 pointer-events-none">
+        <img
+          src={qrCodeImg}
+          alt="QR Code"
+          className="w-full h-full object-contain opacity-80 hover:opacity-100 transition-opacity"
+        />
+      </div>
 
       {/* ─── Main hanging assembly ─── */}
       <motion.div

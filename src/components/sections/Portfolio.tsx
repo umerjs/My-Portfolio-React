@@ -3,12 +3,13 @@ import { Card, CardContent } from "../ui/card";
 import { Badge } from "../ui/badge";
 import { ExternalLink } from "lucide-react";
 // Image imports for Vercel static asset handling
-import dilsebuyImg from "../../assets/dilsebuy.png";
-import calculatorImg from "../../assets/calculator.png";
-import quizzappImg from "../../assets/quizzapp.png";
-import carWebsiteImg from "../../assets/car-website.png";
-import starbucksImg from "../../assets/starbucks.png";
-import chessBoardImg from "../../assets/chess-board.png";
+// Use Vite alias "@" (mapped to ./src) for consistent asset resolution in both dev and production builds
+import dilsebuyImg from "@/assets/dilsebuy.png";
+import calculatorImg from "@/assets/calculator.png";
+import quizzappImg from "@/assets/quizzapp.png";
+import carWebsiteImg from "@/assets/car-website.png";
+import starbucksImg from "@/assets/starbucks.png";
+import chessBoardImg from "@/assets/chess-board.png";
 
 const projects = [
   {

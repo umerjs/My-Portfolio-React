@@ -1,16 +1,3 @@
-/**
- * CardBody — The main card container that composes all depth and surface
- * layers into a single believable 3D-looking card.
- *
- * Architecture (back to front):
- * 1. DepthLayer — stacked offset layers for thickness
- * 2. CardFace — the actual content
- * 3. ShineOverlay — specular highlight tracking cursor
- * 4. Edge border highlight — inner glow ring
- *
- * This component handles the card's own perspective transform and shadow.
- */
-
 import { motion, useTransform, type MotionValue } from 'framer-motion';
 import { CARD_WIDTH, CARD_HEIGHT, CARD_BORDER_RADIUS, ENTRANCE_DURATION } from './constants';
 import { CardFace } from './CardFace';
