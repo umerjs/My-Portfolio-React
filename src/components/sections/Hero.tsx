@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Sparkles, Download, MessageSquare } from "lucide-react";
 import { Button } from "../ui/button";
-import HangingCard from "@/components/ui/HangingCard";
+import HangingCard from "@/components/hero-card/HangingCard";
 
 export function Hero() {
   return (
