@@ -2,6 +2,13 @@ import { motion } from "framer-motion";
 import { Card, CardContent } from "../ui/card";
 import { Badge } from "../ui/badge";
 import { ExternalLink } from "lucide-react";
+// Image imports for Vercel static asset handling
+import dilsebuyImg from "../../assets/dilsebuy.png";
+import calculatorImg from "../../assets/calculator.png";
+import quizzappImg from "../../assets/quizzapp.png";
+import carWebsiteImg from "../../assets/car-website.png";
+import starbucksImg from "../../assets/starbucks.png";
+import chessBoardImg from "../../assets/chess-board.png";
 
 const projects = [
   {
@@ -11,7 +18,7 @@ const projects = [
     tags: ["E-Commerce", "HTML/CSS"],
     color: "from-blue-500/20 to-purple-500/20",
     link: "https://dilsebuy.netlify.app",
-    image: "/src/assets/dilsebuy.png",
+    image: dilsebuyImg,
   },
   {
     title: "Calculator",
@@ -20,7 +27,7 @@ const projects = [
     tags: ["Tool", "JavaScript"],
     color: "from-emerald-500/20 to-teal-500/20",
     link: "https://calculatorbyumer.netlify.app",
-    image: "/src/assets/calculator.png",
+    image: calculatorImg,
   },
   {
     title: "Quiz App",
@@ -29,7 +36,7 @@ const projects = [
     tags: ["Interactive", "Tailwind"],
     color: "from-orange-500/20 to-red-500/20",
     link: "https://quizzappbyumer.netlify.app",
-    image: "/src/assets/quizzapp.png",
+    image: quizzappImg,
   },
   {
     title: "Car Website",
@@ -38,7 +45,7 @@ const projects = [
     tags: ["Showcase", "Responsive"],
     color: "from-slate-500/20 to-gray-500/20",
     link: "https://carexperts.netlify.app/",
-    image: "/src/assets/car website.png",
+    image: carWebsiteImg,
   },
   {
     title: "Starbucks Clone",
@@ -47,7 +54,7 @@ const projects = [
     tags: ["Clone", "CSS"],
     color: "from-green-500/20 to-emerald-500/20",
     link: "https://starcoffee-by-umer.netlify.app/",
-    image: "/src/assets/starbucks.png",
+    image: starbucksImg,
   },
   {
     title: "Chess Board",
@@ -56,7 +63,7 @@ const projects = [
     tags: ["Game", "CSS Grid"],
     color: "from-yellow-500/20 to-amber-500/20",
     link: "https://chessbyumer.netlify.app/",
-    image: "/src/assets/chess board.png",
+    image: chessBoardImg,
   },
 ];
 
