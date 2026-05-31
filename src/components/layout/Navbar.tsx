@@ -62,7 +62,12 @@ export function Navbar() {
         </div>
 
         {/* Desktop CTA */}
-        <a href="https://www.linkedin.com/in/umer-the-dev/" target="_blank" rel="noopener noreferrer" className="hidden md:block ml-4">
+        <a
+          href="https://www.linkedin.com/in/umer-the-dev/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hidden md:block ml-4"
+        >
           <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
             <span className="bg-primary/90 hover:bg-primary text-primary-foreground px-5 py-2.5 rounded-full text-sm font-bold shadow-lg shadow-primary/30 transition-colors font-syne">
               Hire Me

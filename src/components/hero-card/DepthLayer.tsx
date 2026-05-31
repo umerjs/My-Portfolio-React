@@ -8,7 +8,7 @@
  * card's edge at an angle.
  */
 
-import { motion, useTransform, type MotionValue } from 'framer-motion';
+import { motion, useTransform, type MotionValue } from "framer-motion";
 
 interface DepthLayerProps {
   tiltX: MotionValue<number>;
@@ -26,16 +26,16 @@ export function DepthLayer({ tiltX, tiltY }: DepthLayerProps) {
       style={{
         rotateY: offsetX,
         rotateX: offsetY,
-        transformStyle: 'preserve-3d',
+        transformStyle: "preserve-3d",
       }}
     >
       {/* Layer 1 — Deepest shadow layer (farthest back) */}
       <div
         className="absolute inset-0 rounded-[22px]"
         style={{
-          transform: 'translateZ(-8px) translateY(3px)',
-          background: '#050507',
-          boxShadow: '0 4px 20px rgba(0,0,0,0.5)',
+          transform: "translateZ(-8px) translateY(3px)",
+          background: "#050507",
+          boxShadow: "0 4px 20px rgba(0,0,0,0.5)",
         }}
       />
 
@@ -43,9 +43,9 @@ export function DepthLayer({ tiltX, tiltY }: DepthLayerProps) {
       <div
         className="absolute inset-0 rounded-[22px]"
         style={{
-          transform: 'translateZ(-5px) translateY(2px)',
-          background: 'linear-gradient(180deg, #1a1a1d 0%, #0c0c0e 100%)',
-          boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.04)',
+          transform: "translateZ(-5px) translateY(2px)",
+          background: "linear-gradient(180deg, #1a1a1d 0%, #0c0c0e 100%)",
+          boxShadow: "inset 0 1px 0 rgba(255,255,255,0.04)",
         }}
       />
 
@@ -53,10 +53,10 @@ export function DepthLayer({ tiltX, tiltY }: DepthLayerProps) {
       <div
         className="absolute inset-0 rounded-[22px]"
         style={{
-          transform: 'translateZ(-2px) translateY(1px)',
-          background: 'linear-gradient(180deg, #18181b 0%, #0e0e10 100%)',
+          transform: "translateZ(-2px) translateY(1px)",
+          background: "linear-gradient(180deg, #18181b 0%, #0e0e10 100%)",
           boxShadow:
-            'inset 0 1px 0 rgba(255,255,255,0.06), inset 0 -1px 0 rgba(255,255,255,0.02)',
+            "inset 0 1px 0 rgba(255,255,255,0.06), inset 0 -1px 0 rgba(255,255,255,0.02)",
         }}
       />
 
@@ -64,10 +64,9 @@ export function DepthLayer({ tiltX, tiltY }: DepthLayerProps) {
       <div
         className="absolute bottom-0 left-2 right-2 h-[6px] rounded-b-[20px]"
         style={{
-          transform: 'translateZ(-4px) translateY(4px)',
-          background:
-            'linear-gradient(180deg, #151517 0%, #0a0a0c 100%)',
-          boxShadow: '0 2px 8px rgba(0,0,0,0.4)',
+          transform: "translateZ(-4px) translateY(4px)",
+          background: "linear-gradient(180deg, #151517 0%, #0a0a0c 100%)",
+          boxShadow: "0 2px 8px rgba(0,0,0,0.4)",
         }}
       />
 
@@ -75,9 +74,9 @@ export function DepthLayer({ tiltX, tiltY }: DepthLayerProps) {
       <div
         className="absolute top-2 right-0 bottom-2 w-[4px] rounded-r-[20px]"
         style={{
-          transform: 'translateZ(-3px) translateX(2px)',
+          transform: "translateZ(-3px) translateX(2px)",
           background:
-            'linear-gradient(90deg, transparent, rgba(255,255,255,0.04))',
+            "linear-gradient(90deg, transparent, rgba(255,255,255,0.04))",
         }}
       />
     </motion.div>

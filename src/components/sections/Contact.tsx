@@ -1,44 +1,47 @@
-import { useState, useEffect } from "react"
-import emailjs from "@emailjs/browser"
-import { motion } from "framer-motion"
-import { Card, CardContent } from "../ui/card"
-import { Input } from "../ui/input"
-import { Textarea } from "../ui/textarea"
-import { Button } from "../ui/button"
-import { Label } from "../ui/label"
-import { Send, Loader2, CheckCircle2, AlertCircle } from "lucide-react"
+import { useState, useEffect } from "react";
+import emailjs from "@emailjs/browser";
+import { motion } from "framer-motion";
+import { Card, CardContent } from "../ui/card";
+import { Input } from "../ui/input";
+import { Textarea } from "../ui/textarea";
+import { Button } from "../ui/button";
+import { Label } from "../ui/label";
+import { Send, Loader2, CheckCircle2, AlertCircle } from "lucide-react";
 
 export function Contact() {
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const [isSuccess, setIsSuccess] = useState(false)
-  const [error, setError] = useState<string | null>(null)
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   // Initialize EmailJS
   useEffect(() => {
-    emailjs.init("0ZLI95-tnsXhNFshV")
-  }, [])
+    emailjs.init("0ZLI95-tnsXhNFshV");
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    setIsSubmitting(true)
-    setError(null)
-    
-    const SERVICE_ID = "service_ibl35r6"
-    const TEMPLATE_ID = "template_9nz4zqm"
+    e.preventDefault();
+    setIsSubmitting(true);
+    setError(null);
+
+    const SERVICE_ID = "service_ibl35r6";
+    const TEMPLATE_ID = "template_9nz4zqm";
 
     try {
-      await emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, e.currentTarget)
-      setIsSuccess(true)
-      ;(e.target as HTMLFormElement).reset()
-      setTimeout(() => setIsSuccess(false), 5000)
+      await emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, e.currentTarget);
+      setIsSuccess(true);
+      (e.target as HTMLFormElement).reset();
+      setTimeout(() => setIsSuccess(false), 5000);
     } catch (err) {
-      const errorMessage = err instanceof Error ? err.message : "Failed to send message. Please try again later."
-      console.error("Failed to send email:", err)
-      setError(errorMessage)
+      const errorMessage =
+        err instanceof Error
+          ? err.message
+          : "Failed to send message. Please try again later.";
+      console.error("Failed to send email:", err);
+      setError(errorMessage);
     } finally {
-      setIsSubmitting(false)
+      setIsSubmitting(false);
     }
-  }
+  };
 
   return (
     <section id="contact" className="py-20">
@@ -62,7 +65,8 @@ export function Contact() {
             Let's Work Together
           </h2>
           <p className="mt-4 text-lg text-muted-foreground">
-            Have a project in mind or looking for a developer? I'd love to hear from you.
+            Have a project in mind or looking for a developer? I'd love to hear
+            from you.
           </p>
         </div>
 
@@ -78,7 +82,9 @@ export function Contact() {
                   transition={{ delay: 0.1 }}
                   className="space-y-2"
                 >
-                  <Label htmlFor="name" className="text-sm font-medium">Name</Label>
+                  <Label htmlFor="name" className="text-sm font-medium">
+                    Name
+                  </Label>
                   <Input
                     id="name"
                     name="user_name"
@@ -94,7 +100,9 @@ export function Contact() {
                   transition={{ delay: 0.1 }}
                   className="space-y-2"
                 >
-                  <Label htmlFor="email" className="text-sm font-medium">Email</Label>
+                  <Label htmlFor="email" className="text-sm font-medium">
+                    Email
+                  </Label>
                   <Input
                     id="email"
                     name="user_email"
@@ -114,7 +122,9 @@ export function Contact() {
                 transition={{ delay: 0.2 }}
                 className="space-y-2"
               >
-                <Label htmlFor="subject" className="text-sm font-medium">Subject</Label>
+                <Label htmlFor="subject" className="text-sm font-medium">
+                  Subject
+                </Label>
                 <Input
                   id="subject"
                   name="subject"
@@ -132,7 +142,9 @@ export function Contact() {
                 transition={{ delay: 0.3 }}
                 className="space-y-2"
               >
-                <Label htmlFor="message" className="text-sm font-medium">Message</Label>
+                <Label htmlFor="message" className="text-sm font-medium">
+                  Message
+                </Label>
                 <Textarea
                   id="message"
                   name="message"
@@ -165,7 +177,9 @@ export function Contact() {
                   className="p-4 rounded-lg bg-green-500/10 border border-green-500/30 flex items-center gap-3"
                 >
                   <CheckCircle2 className="h-5 w-5 text-green-500 flex-shrink-0" />
-                  <p className="text-sm text-green-500">Message sent successfully! I'll get back to you soon.</p>
+                  <p className="text-sm text-green-500">
+                    Message sent successfully! I'll get back to you soon.
+                  </p>
                 </motion.div>
               )}
 
@@ -182,11 +196,17 @@ export function Contact() {
                   className="w-full h-12 text-base font-syne font-bold rounded-lg transition-all shadow-lg hover:shadow-primary/20"
                 >
                   {isSubmitting ? (
-                    <><Loader2 className="mr-2 h-5 w-5 animate-spin" /> Sending</>
+                    <>
+                      <Loader2 className="mr-2 h-5 w-5 animate-spin" /> Sending
+                    </>
                   ) : isSuccess ? (
-                    <><CheckCircle2 className="mr-2 h-5 w-5" /> Message Sent!</>
+                    <>
+                      <CheckCircle2 className="mr-2 h-5 w-5" /> Message Sent!
+                    </>
                   ) : (
-                    <><Send className="mr-2 h-5 w-5" /> Send Message</>
+                    <>
+                      <Send className="mr-2 h-5 w-5" /> Send Message
+                    </>
                   )}
                 </Button>
               </motion.div>
@@ -195,5 +215,5 @@ export function Contact() {
         </Card>
       </motion.div>
     </section>
-  )
+  );
 }

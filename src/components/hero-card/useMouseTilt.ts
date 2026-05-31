@@ -7,14 +7,14 @@
  * without triggering React re-renders on every mouse move.
  */
 
-import { useRef, useEffect, useCallback } from 'react';
+import { useRef, useEffect, useCallback } from "react";
 import {
   useMotionValue,
   useSpring,
   useTransform,
   type MotionValue,
-} from 'framer-motion';
-import { MAX_TILT_DEG, TILT_SPRING } from './constants';
+} from "framer-motion";
+import { MAX_TILT_DEG, TILT_SPRING } from "./constants";
 
 export interface UseMouseTiltReturn {
   /** Ref to attach to the interactive container */
@@ -49,10 +49,11 @@ export function useMouseTilt(): UseMouseTiltReturn {
   );
 
   // Rope sway — uses a softer spring to lag behind the card
-  const ropeSway = useSpring(
-    useTransform(rawX, [-1, 1], [3, -3]),
-    { stiffness: 80, damping: 35, mass: 1.5 },
-  );
+  const ropeSway = useSpring(useTransform(rawX, [-1, 1], [3, -3]), {
+    stiffness: 80,
+    damping: 35,
+    mass: 1.5,
+  });
 
   // Smoothed mouse position for highlight/shine effects
   const mouseX = useSpring(rawX, { stiffness: 200, damping: 30 });
@@ -89,14 +90,14 @@ export function useMouseTilt(): UseMouseTiltReturn {
     };
     const onLeave = () => handleLeave();
 
-    el.addEventListener('mousemove', onMouseMove, { passive: true });
-    el.addEventListener('touchmove', onTouchMove, { passive: true });
-    el.addEventListener('mouseleave', onLeave);
+    el.addEventListener("mousemove", onMouseMove, { passive: true });
+    el.addEventListener("touchmove", onTouchMove, { passive: true });
+    el.addEventListener("mouseleave", onLeave);
 
     return () => {
-      el.removeEventListener('mousemove', onMouseMove);
-      el.removeEventListener('touchmove', onTouchMove);
-      el.removeEventListener('mouseleave', onLeave);
+      el.removeEventListener("mousemove", onMouseMove);
+      el.removeEventListener("touchmove", onTouchMove);
+      el.removeEventListener("mouseleave", onLeave);
     };
   }, [handleMove, handleLeave]);
 

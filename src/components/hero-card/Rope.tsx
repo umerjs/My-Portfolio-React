@@ -13,8 +13,8 @@
  * All visuals are pure CSS — no SVG, no Canvas.
  */
 
-import { motion, type MotionValue, useTransform } from 'framer-motion';
-import { ROPE_HEIGHT, ENTRANCE_DURATION, COLORS } from './constants';
+import { motion, type MotionValue, useTransform } from "framer-motion";
+import { ROPE_HEIGHT, ENTRANCE_DURATION, COLORS } from "./constants";
 
 interface RopeProps {
   ropeSway: MotionValue<number>;
@@ -34,7 +34,7 @@ export function Rope({ ropeSway }: RopeProps) {
         ease: [0.22, 1, 0.36, 1],
         delay: 0.1,
       }}
-      style={{ transformOrigin: 'top center' }}
+      style={{ transformOrigin: "top center" }}
     >
       {/* ─── Ceiling anchor plate ─── */}
       <div
@@ -47,25 +47,22 @@ export function Rope({ ropeSway }: RopeProps) {
             width: 36,
             height: 12,
             background:
-              'linear-gradient(180deg, #e0e0e0 0%, #a0a0a0 40%, #888 100%)',
+              "linear-gradient(180deg, #e0e0e0 0%, #a0a0a0 40%, #888 100%)",
             boxShadow:
-              '0 2px 6px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.5)',
+              "0 2px 6px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.5)",
           }}
         />
       </div>
 
       {/* ─── Anchor ring ─── */}
-      <div
-        className="relative -mt-0.5"
-        style={{ width: 16, height: 16 }}
-      >
+      <div className="relative -mt-0.5" style={{ width: 16, height: 16 }}>
         <div
           className="rounded-full border-[2.5px]"
           style={{
             width: 16,
             height: 16,
             borderColor: COLORS.silver,
-            background: 'transparent',
+            background: "transparent",
             boxShadow: `0 1px 4px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.3)`,
           }}
         />
@@ -78,7 +75,7 @@ export function Rope({ ropeSway }: RopeProps) {
           width: 3,
           height: ROPE_HEIGHT,
           skewX: ropeSkew,
-          transformOrigin: 'top center',
+          transformOrigin: "top center",
         }}
       >
         {/* Main rope */}
@@ -86,8 +83,8 @@ export function Rope({ ropeSway }: RopeProps) {
           className="absolute inset-0 rounded-full"
           style={{
             background:
-              'linear-gradient(90deg, #1a1a1a 0%, #2a2a2a 40%, #1a1a1a 100%)',
-            boxShadow: '1px 0 3px rgba(0,0,0,0.3)',
+              "linear-gradient(90deg, #1a1a1a 0%, #2a2a2a 40%, #1a1a1a 100%)",
+            boxShadow: "1px 0 3px rgba(0,0,0,0.3)",
           }}
         />
         {/* Rope highlight — simulates light catching the edge */}
@@ -95,7 +92,7 @@ export function Rope({ ropeSway }: RopeProps) {
           className="absolute top-0 bottom-0 left-[1px] w-[1px] rounded-full"
           style={{
             background:
-              'linear-gradient(180deg, rgba(255,255,255,0.12) 0%, rgba(255,255,255,0.04) 50%, rgba(255,255,255,0.08) 100%)',
+              "linear-gradient(180deg, rgba(255,255,255,0.12) 0%, rgba(255,255,255,0.04) 50%, rgba(255,255,255,0.08) 100%)",
           }}
         />
       </motion.div>
@@ -111,9 +108,9 @@ export function Rope({ ropeSway }: RopeProps) {
             width: 28,
             height: 10,
             background:
-              'linear-gradient(180deg, #c8c8c8 0%, #9a9a9a 50%, #888 100%)',
+              "linear-gradient(180deg, #c8c8c8 0%, #9a9a9a 50%, #888 100%)",
             boxShadow:
-              '0 2px 4px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.4), inset 0 -1px 0 rgba(0,0,0,0.2)',
+              "0 2px 4px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.4), inset 0 -1px 0 rgba(0,0,0,0.2)",
           }}
         />
         {/* Clasp slot */}
@@ -122,7 +119,7 @@ export function Rope({ ropeSway }: RopeProps) {
           style={{
             width: 8,
             height: 3,
-            background: 'rgba(0,0,0,0.3)',
+            background: "rgba(0,0,0,0.3)",
           }}
         />
       </div>

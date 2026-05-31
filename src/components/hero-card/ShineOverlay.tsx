@@ -9,7 +9,7 @@
  * driven by Framer Motion spring values to avoid re-renders.
  */
 
-import { motion, useTransform, type MotionValue } from 'framer-motion';
+import { motion, useTransform, type MotionValue } from "framer-motion";
 
 interface ShineOverlayProps {
   mouseX: MotionValue<number>;
@@ -34,7 +34,7 @@ export function ShineOverlay({ mouseX, mouseY }: ShineOverlayProps) {
         className="absolute -inset-1/2 opacity-[0.12]"
         style={{
           background:
-            'linear-gradient(115deg, transparent 30%, rgba(255,255,255,0.6) 45%, rgba(255,255,255,0.15) 55%, transparent 70%)',
+            "linear-gradient(115deg, transparent 30%, rgba(255,255,255,0.6) 45%, rgba(255,255,255,0.15) 55%, transparent 70%)",
         }}
       />
       {/* Secondary warm accent — subtle gold rim from simulated warm light */}
@@ -42,7 +42,7 @@ export function ShineOverlay({ mouseX, mouseY }: ShineOverlayProps) {
         className="absolute -inset-1/2 opacity-[0.06]"
         style={{
           background:
-            'linear-gradient(220deg, transparent 40%, rgba(201,169,106,0.5) 50%, transparent 60%)',
+            "linear-gradient(220deg, transparent 40%, rgba(201,169,106,0.5) 50%, transparent 60%)",
         }}
       />
     </motion.div>

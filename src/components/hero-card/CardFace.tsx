@@ -8,8 +8,8 @@
  * All visual details are pure CSS — no images except the avatar.
  */
 
-import { CARD_BORDER_RADIUS, DEFAULT_PROFILE, COLORS } from './constants';
-import type { CardProfile } from './types';
+import { CARD_BORDER_RADIUS, DEFAULT_PROFILE, COLORS } from "./constants";
+import type { CardProfile } from "./types";
 
 interface CardFaceProps {
   profile?: CardProfile;
@@ -20,8 +20,8 @@ export function CardFace({ profile = DEFAULT_PROFILE }: CardFaceProps) {
     <div
       className="relative flex flex-col overflow-hidden font-sans"
       style={{
-        width: '100%',
-        height: '100%',
+        width: "100%",
+        height: "100%",
         borderRadius: CARD_BORDER_RADIUS,
       }}
     >
@@ -56,7 +56,7 @@ export function CardFace({ profile = DEFAULT_PROFILE }: CardFaceProps) {
           <span
             className="text-[10px] font-medium uppercase"
             style={{
-              letterSpacing: '0.25em',
+              letterSpacing: "0.25em",
               color: COLORS.white50,
             }}
           >
@@ -65,7 +65,7 @@ export function CardFace({ profile = DEFAULT_PROFILE }: CardFaceProps) {
           <span
             className="text-[10px] font-medium uppercase"
             style={{
-              letterSpacing: '0.25em',
+              letterSpacing: "0.25em",
               color: COLORS.gold,
             }}
           >
@@ -89,7 +89,7 @@ export function CardFace({ profile = DEFAULT_PROFILE }: CardFaceProps) {
               className="absolute -inset-1.5 rounded-full"
               style={{
                 background: `linear-gradient(135deg, ${COLORS.goldMuted} 0%, transparent 60%)`,
-                filter: 'blur(8px)',
+                filter: "blur(8px)",
               }}
             />
             <img
@@ -108,7 +108,7 @@ export function CardFace({ profile = DEFAULT_PROFILE }: CardFaceProps) {
           {/* Name */}
           <h2
             className="mt-5 text-[22px] font-semibold tracking-tight text-white"
-            style={{ fontFamily: 'var(--font-sans)' }}
+            style={{ fontFamily: "var(--font-sans)" }}
           >
             {profile.name}
           </h2>
@@ -117,7 +117,7 @@ export function CardFace({ profile = DEFAULT_PROFILE }: CardFaceProps) {
           <p
             className="mt-1 text-[11px] font-medium uppercase"
             style={{
-              letterSpacing: '0.22em',
+              letterSpacing: "0.22em",
               color: COLORS.gold,
             }}
           >
@@ -151,7 +151,7 @@ export function CardFace({ profile = DEFAULT_PROFILE }: CardFaceProps) {
           <div className="flex flex-col gap-1">
             <span
               className="text-[9px] font-medium uppercase"
-              style={{ letterSpacing: '0.25em', color: COLORS.white40 }}
+              style={{ letterSpacing: "0.25em", color: COLORS.white40 }}
             >
               ID
             </span>
@@ -163,7 +163,7 @@ export function CardFace({ profile = DEFAULT_PROFILE }: CardFaceProps) {
             </span>
             <span
               className="mt-1 text-[9px] font-medium uppercase"
-              style={{ letterSpacing: '0.25em', color: COLORS.white40 }}
+              style={{ letterSpacing: "0.25em", color: COLORS.white40 }}
             >
               Access
             </span>
@@ -175,16 +175,15 @@ export function CardFace({ profile = DEFAULT_PROFILE }: CardFaceProps) {
           {/* QR code — deterministic dot pattern */}
           <div
             className="grid grid-cols-8 gap-[2px] rounded-md bg-white p-1.5"
-            style={{ boxShadow: '0 2px 8px rgba(0,0,0,0.3)' }}
+            style={{ boxShadow: "0 2px 8px rgba(0,0,0,0.3)" }}
           >
             {Array.from({ length: 64 }).map((_, i) => {
-              const on =
-                ((i * 53 + 7) % 7) % 2 === 0 || i < 3 || i % 9 === 0;
+              const on = ((i * 53 + 7) % 7) % 2 === 0 || i < 3 || i % 9 === 0;
               return (
                 <div
                   key={i}
                   className="h-[6px] w-[6px]"
-                  style={{ background: on ? '#000' : '#fff' }}
+                  style={{ background: on ? "#000" : "#fff" }}
                 />
               );
             })}

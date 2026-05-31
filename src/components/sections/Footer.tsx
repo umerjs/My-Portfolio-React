@@ -1,14 +1,13 @@
 import { motion } from "framer-motion";
-import { 
-  MessageSquareIcon as MessageSquare, 
-  MailIcon as Mail, 
-  MapPin, 
-  Code2, 
-  Heart 
+import {
+  MessageSquareIcon as MessageSquare,
+  MailIcon as Mail,
+  MapPin,
+  Code2,
+  Heart,
 } from "lucide-react";
 
 export function Footer() {
-
   return (
     <footer className="relative z-10 border-t border-border/50 bg-background/30 backdrop-blur-sm">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
@@ -23,13 +22,16 @@ export function Footer() {
           >
             <div className="flex items-center gap-2 mb-4">
               <Code2 className="w-6 h-6 text-primary" />
-              <a href="https://umer-memon.vercel.app" className="text-xl font-bold no-underline hover:text-primary">
+              <a
+                href="https://umer-memon.vercel.app"
+                className="text-xl font-bold no-underline hover:text-primary"
+              >
                 Umer.Dev
               </a>
             </div>
             <p className="text-muted-foreground leading-relaxed">
-              Passionate full-stack engineer based in Karachi, Pakistan. 
-              I craft beautiful, responsive web experiences with modern technologies.
+              Passionate full-stack engineer based in Karachi, Pakistan. I craft
+              beautiful, responsive web experiences with modern technologies.
               Always open to exciting projects and collaborations.
             </p>
             <div className="flex items-center gap-2 text-muted-foreground">
@@ -48,19 +50,34 @@ export function Footer() {
           >
             <h3 className="text-xl font-bold mb-4">Quick Links</h3>
             <nav className="flex flex-col space-y-3">
-              <a href="#about" className="text-muted-foreground hover:text-primary transition-colors">
+              <a
+                href="#about"
+                className="text-muted-foreground hover:text-primary transition-colors"
+              >
                 About Me
               </a>
-              <a href="#tech" className="text-muted-foreground hover:text-primary transition-colors">
+              <a
+                href="#tech"
+                className="text-muted-foreground hover:text-primary transition-colors"
+              >
                 Tech Stack
               </a>
-              <a href="#portfolio" className="text-muted-foreground hover:text-primary transition-colors">
+              <a
+                href="#portfolio"
+                className="text-muted-foreground hover:text-primary transition-colors"
+              >
                 Portfolio
               </a>
-              <a href="#experience" className="text-muted-foreground hover:text-primary transition-colors">
+              <a
+                href="#experience"
+                className="text-muted-foreground hover:text-primary transition-colors"
+              >
                 Experience
               </a>
-              <a href="#contact" className="text-muted-foreground hover:text-primary transition-colors">
+              <a
+                href="#contact"
+                className="text-muted-foreground hover:text-primary transition-colors"
+              >
                 Contact
               </a>
             </nav>
@@ -76,16 +93,16 @@ export function Footer() {
           >
             <h3 className="text-xl font-bold mb-4">Get In Touch</h3>
             <div className="space-y-3">
-              <a 
-                href="mailto:umery101@gmail.com" 
+              <a
+                href="mailto:umery101@gmail.com"
                 className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors"
               >
                 <Mail className="w-5 h-5" />
                 <span>umery101@gmail.com</span>
               </a>
-              <a 
-                href="https://wa.me/923161395147" 
-                target="_blank" 
+              <a
+                href="https://wa.me/923161395147"
+                target="_blank"
                 rel="noreferrer"
                 className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors"
               >
@@ -168,7 +185,9 @@ export function Footer() {
             © 2024 Umer Memon. All rights reserved.
           </p>
           <p className="text-sm text-muted-foreground flex items-center gap-1">
-            Crafted By Umer Memon With<Heart className="w-4 h-4 text-red-500 fill-red-500" /> Using ReactJs and TailwindCss
+            Crafted By Umer Memon With
+            <Heart className="w-4 h-4 text-red-500 fill-red-500" /> Using
+            ReactJs and TailwindCss
           </p>
         </motion.div>
       </div>

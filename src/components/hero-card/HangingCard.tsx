@@ -1,21 +1,21 @@
-import { motion } from 'framer-motion';
-import { useMouseTilt } from './useMouseTilt';
-import { Rope } from './Rope';
-import { CardBody } from './CardBody';
-import { AmbientGlow } from './AmbientGlow';
+import { motion } from "framer-motion";
+import { useMouseTilt } from "./useMouseTilt";
+import { Rope } from "./Rope";
+import { CardBody } from "./CardBody";
+import { AmbientGlow } from "./AmbientGlow";
 // QR code image for the hanging card (replace with your actual QR asset)
 import qrCodeImg from "@/assets/Linkedin.png";
 import {
   PERSPECTIVE_PX,
   IDLE_SWAY_DURATION,
   IDLE_SWAY_AMPLITUDE,
-} from './constants';
+} from "./constants";
 
 interface HangingCardProps {
   className?: string;
 }
 
-export default function HangingCard({ className = '' }: HangingCardProps) {
+export default function HangingCard({ className = "" }: HangingCardProps) {
   const { containerRef, tiltX, tiltY, mouseX, mouseY, ropeSway } =
     useMouseTilt();
 
@@ -25,8 +25,8 @@ export default function HangingCard({ className = '' }: HangingCardProps) {
       className={`relative flex items-start justify-center select-none ${className}`}
       style={{
         perspective: PERSPECTIVE_PX,
-        perspectiveOrigin: '50% 0%',
-        touchAction: 'none',
+        perspectiveOrigin: "50% 0%",
+        touchAction: "none",
       }}
     >
       {/* ─── Ambient atmospheric glow ─── */}
@@ -45,8 +45,8 @@ export default function HangingCard({ className = '' }: HangingCardProps) {
       <motion.div
         className="relative flex flex-col items-center will-change-transform"
         style={{
-          transformStyle: 'preserve-3d',
-          transformOrigin: 'top center',
+          transformStyle: "preserve-3d",
+          transformOrigin: "top center",
         }}
         // Subtle idle sway animation — pendulum-like
         animate={{
@@ -59,19 +59,14 @@ export default function HangingCard({ className = '' }: HangingCardProps) {
         transition={{
           duration: IDLE_SWAY_DURATION,
           repeat: Infinity,
-          ease: 'easeInOut',
+          ease: "easeInOut",
         }}
       >
         {/* Rope + anchor system */}
         <Rope ropeSway={ropeSway} />
 
         {/* Card body with all depth layers */}
-        <CardBody
-          tiltX={tiltX}
-          tiltY={tiltY}
-          mouseX={mouseX}
-          mouseY={mouseY}
-        />
+        <CardBody tiltX={tiltX} tiltY={tiltY} mouseX={mouseX} mouseY={mouseY} />
       </motion.div>
     </div>
   );

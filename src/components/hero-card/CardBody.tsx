@@ -1,8 +1,13 @@
-import { motion, useTransform, type MotionValue } from 'framer-motion';
-import { CARD_WIDTH, CARD_HEIGHT, CARD_BORDER_RADIUS, ENTRANCE_DURATION } from './constants';
-import { CardFace } from './CardFace';
-import { ShineOverlay } from './ShineOverlay';
-import { DepthLayer } from './DepthLayer';
+import { motion, useTransform, type MotionValue } from "framer-motion";
+import {
+  CARD_WIDTH,
+  CARD_HEIGHT,
+  CARD_BORDER_RADIUS,
+  ENTRANCE_DURATION,
+} from "./constants";
+import { CardFace } from "./CardFace";
+import { ShineOverlay } from "./ShineOverlay";
+import { DepthLayer } from "./DepthLayer";
 
 interface CardBodyProps {
   tiltX: MotionValue<number>;
@@ -23,7 +28,7 @@ export function CardBody({ tiltX, tiltY, mouseX, mouseY }: CardBodyProps) {
       style={{
         width: CARD_WIDTH,
         height: CARD_HEIGHT,
-        transformStyle: 'preserve-3d',
+        transformStyle: "preserve-3d",
         rotateY: tiltX,
         rotateX: tiltY,
       }}
@@ -38,7 +43,7 @@ export function CardBody({ tiltX, tiltY, mouseX, mouseY }: CardBodyProps) {
       <motion.div
         className="absolute inset-0 rounded-[22px]"
         style={{
-          filter: 'blur(1px)',
+          filter: "blur(1px)",
           boxShadow: useTransform(
             [shadowX, shadowY, shadowBlur],
             ([sx, sy, sb]) =>
