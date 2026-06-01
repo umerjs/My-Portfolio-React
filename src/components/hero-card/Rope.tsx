@@ -1,18 +1,3 @@
-/**
- * Rope — The lanyard/suspension system connecting the card to the top anchor.
- *
- * Visual components:
- * 1. Ceiling anchor plate (matte metallic disc)
- * 2. Anchor ring (small torus-like metallic ring)
- * 3. Lanyard/rope (thin vertical strip with subtle sway)
- * 4. Bottom clasp (metallic clip where rope meets card)
- *
- * The rope sways slightly behind the card's tilt to simulate
- * realistic inertia and pendulum-like tension.
- *
- * All visuals are pure CSS — no SVG, no Canvas.
- */
-
 import { motion, type MotionValue, useTransform } from "framer-motion";
 import { ROPE_HEIGHT, ENTRANCE_DURATION, COLORS } from "./constants";
 
@@ -21,7 +6,6 @@ interface RopeProps {
 }
 
 export function Rope({ ropeSway }: RopeProps) {
-  // The rope bows slightly in the middle based on sway
   const ropeSkew = useTransform(ropeSway, (v) => v * 0.4);
 
   return (
@@ -36,39 +20,44 @@ export function Rope({ ropeSway }: RopeProps) {
       }}
       style={{ transformOrigin: "top center" }}
     >
-      {/* ─── Ceiling anchor plate ─── */}
       <div
         className="relative flex items-center justify-center"
-        style={{ width: 36, height: 12 }}
+        style={{ width: 40, height: 14 }}
       >
         <div
           className="rounded-full"
           style={{
-            width: 36,
-            height: 12,
+            width: 40,
+            height: 14,
             background:
-              "linear-gradient(180deg, #e0e0e0 0%, #a0a0a0 40%, #888 100%)",
+              "linear-gradient(180deg, #e8e8e8 0%, #b0b0b0 30%, #888 60%, #666 100%)",
             boxShadow:
-              "0 2px 6px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.5)",
+              "0 3px 8px rgba(0,0,0,0.5), inset 0 1.5px 0 rgba(255,255,255,0.6), inset 0 -1px 0 rgba(0,0,0,0.2)",
+          }}
+        />
+        <div
+          className="absolute top-0.5 left-1/2 -translate-x-1/2 w-4 h-[3px] rounded-full"
+          style={{
+            background:
+              "linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent)",
           }}
         />
       </div>
 
-      {/* ─── Anchor ring ─── */}
-      <div className="relative -mt-0.5" style={{ width: 16, height: 16 }}>
+      <div className="relative -mt-0.5" style={{ width: 18, height: 18 }}>
         <div
           className="rounded-full border-[2.5px]"
           style={{
-            width: 16,
-            height: 16,
+            width: 18,
+            height: 18,
             borderColor: COLORS.silver,
             background: "transparent",
-            boxShadow: `0 1px 4px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.3)`,
+            boxShadow:
+              "0 2px 6px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.3), 0 0 8px rgba(201,169,106,0.1)",
           }}
         />
       </div>
 
-      {/* ─── Lanyard body ─── */}
       <motion.div
         className="relative"
         style={{
@@ -78,48 +67,45 @@ export function Rope({ ropeSway }: RopeProps) {
           transformOrigin: "top center",
         }}
       >
-        {/* Main rope */}
         <div
           className="absolute inset-0 rounded-full"
           style={{
             background:
-              "linear-gradient(90deg, #1a1a1a 0%, #2a2a2a 40%, #1a1a1a 100%)",
-            boxShadow: "1px 0 3px rgba(0,0,0,0.3)",
+              "linear-gradient(90deg, #111 0%, #333 30%, #444 50%, #222 70%, #111 100%)",
+            boxShadow: "1px 0 4px rgba(0,0,0,0.4), 0 0 6px rgba(201,169,106,0.05)",
           }}
         />
-        {/* Rope highlight — simulates light catching the edge */}
         <div
-          className="absolute top-0 bottom-0 left-[1px] w-[1px] rounded-full"
+          className="absolute top-0 bottom-0 left-[1px] w-[1.5px] rounded-full"
           style={{
             background:
-              "linear-gradient(180deg, rgba(255,255,255,0.12) 0%, rgba(255,255,255,0.04) 50%, rgba(255,255,255,0.08) 100%)",
+              "linear-gradient(180deg, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0.04) 40%, rgba(255,255,255,0.06) 60%, rgba(255,255,255,0.1) 100%)",
           }}
         />
       </motion.div>
 
-      {/* ─── Bottom clasp (where rope meets card) ─── */}
       <div
         className="relative -mt-0.5 flex items-center justify-center"
-        style={{ width: 28, height: 14 }}
+        style={{ width: 30, height: 16 }}
       >
         <div
-          className="rounded-[3px]"
+          className="rounded-[4px]"
           style={{
-            width: 28,
-            height: 10,
+            width: 30,
+            height: 12,
             background:
-              "linear-gradient(180deg, #c8c8c8 0%, #9a9a9a 50%, #888 100%)",
+              "linear-gradient(180deg, #d0d0d0 0%, #a0a0a0 40%, #888 60%, #777 100%)",
             boxShadow:
-              "0 2px 4px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.4), inset 0 -1px 0 rgba(0,0,0,0.2)",
+              "0 3px 6px rgba(0,0,0,0.4), inset 0 1.5px 0 rgba(255,255,255,0.5), inset 0 -1px 0 rgba(0,0,0,0.3)",
           }}
         />
-        {/* Clasp slot */}
         <div
           className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-sm"
           style={{
-            width: 8,
-            height: 3,
-            background: "rgba(0,0,0,0.3)",
+            width: 10,
+            height: 4,
+            background: "rgba(0,0,0,0.4)",
+            boxShadow: "inset 0 1px 2px rgba(0,0,0,0.3)",
           }}
         />
       </div>

@@ -186,7 +186,7 @@ export function Footer() {
           </p>
           <p className="text-sm text-muted-foreground flex items-center gap-1">
             Crafted By Umer Memon With
-            <Heart className="w-4 h-4 text-red-500 fill-red-500" /> Using
+            <Heart className="w-4 h-4 m-2 text-red-500 fill-red-500" /> Using
             ReactJs and TailwindCss
           </p>
         </motion.div>

@@ -3,13 +3,12 @@ import { useMouseTilt } from "./useMouseTilt";
 import { Rope } from "./Rope";
 import { CardBody } from "./CardBody";
 import { AmbientGlow } from "./AmbientGlow";
-// QR code image for the hanging card (replace with your actual QR asset)
-import qrCodeImg from "@/assets/Linkedin.png";
 import {
   PERSPECTIVE_PX,
   IDLE_SWAY_DURATION,
   IDLE_SWAY_AMPLITUDE,
 } from "./constants";
+import { useEffect, useState } from "react";
 
 interface HangingCardProps {
   className?: string;
@@ -18,6 +17,15 @@ interface HangingCardProps {
 export default function HangingCard({ className = "" }: HangingCardProps) {
   const { containerRef, tiltX, tiltY, mouseX, mouseY, ropeSway } =
     useMouseTilt();
+  const [reducedMotion, setReducedMotion] = useState(false);
+
+  useEffect(() => {
+    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+    setReducedMotion(mq.matches);
+    const handler = (e: MediaQueryListEvent) => setReducedMotion(e.matches);
+    mq.addEventListener("change", handler);
+    return () => mq.removeEventListener("change", handler);
+  }, []);
 
   return (
     <div
@@ -26,47 +34,41 @@ export default function HangingCard({ className = "" }: HangingCardProps) {
       style={{
         perspective: PERSPECTIVE_PX,
         perspectiveOrigin: "50% 0%",
-        touchAction: "none",
+        touchAction: "pan-y",
       }}
     >
-      {/* ─── Ambient atmospheric glow ─── */}
       <AmbientGlow mouseX={mouseX} mouseY={mouseY} />
 
-      {/* ─── QR Code overlay (bottom‑right corner) ─── */}
-      <div className="absolute bottom-4 right-4 w-20 h-20 pointer-events-none">
-        <img
-          src={qrCodeImg}
-          alt="QR Code"
-          className="w-full h-full object-contain opacity-80 hover:opacity-100 transition-opacity"
-        />
-      </div>
-
-      {/* ─── Main hanging assembly ─── */}
       <motion.div
         className="relative flex flex-col items-center will-change-transform"
         style={{
           transformStyle: "preserve-3d",
           transformOrigin: "top center",
         }}
-        // Subtle idle sway animation — pendulum-like
-        animate={{
-          rotateZ: [
-            -IDLE_SWAY_AMPLITUDE,
-            IDLE_SWAY_AMPLITUDE,
-            -IDLE_SWAY_AMPLITUDE,
-          ],
-        }}
-        transition={{
-          duration: IDLE_SWAY_DURATION,
-          repeat: Infinity,
-          ease: "easeInOut",
-        }}
+        {...(reducedMotion
+          ? {}
+          : {
+              animate: {
+                rotateZ: [
+                  -IDLE_SWAY_AMPLITUDE,
+                  IDLE_SWAY_AMPLITUDE,
+                  -IDLE_SWAY_AMPLITUDE,
+                ],
+              },
+              transition: {
+                duration: IDLE_SWAY_DURATION,
+                repeat: Infinity,
+                ease: "easeInOut",
+              },
+            })}
       >
-        {/* Rope + anchor system */}
         <Rope ropeSway={ropeSway} />
-
-        {/* Card body with all depth layers */}
-        <CardBody tiltX={tiltX} tiltY={tiltY} mouseX={mouseX} mouseY={mouseY} />
+        <CardBody
+          tiltX={tiltX}
+          tiltY={tiltY}
+          mouseX={mouseX}
+          mouseY={mouseY}
+        />
       </motion.div>
     </div>
   );

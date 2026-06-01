@@ -1,14 +1,3 @@
-/**
- * ShineOverlay — A directional specular highlight that moves with the cursor.
- *
- * Creates the illusion of a reflective card surface by rendering a diagonal
- * gradient whose position tracks the mouse. The gradient mimics a studio
- * softbox reflection sliding across a glossy surface.
- *
- * Technique: A large linear-gradient is translated via CSS transform,
- * driven by Framer Motion spring values to avoid re-renders.
- */
-
 import { motion, useTransform, type MotionValue } from "framer-motion";
 
 interface ShineOverlayProps {
@@ -17,32 +6,33 @@ interface ShineOverlayProps {
 }
 
 export function ShineOverlay({ mouseX, mouseY }: ShineOverlayProps) {
-  // Map normalised mouse (-1..1) to translate offsets for the shine
-  const shineX = useTransform(mouseX, [-1, 1], [-120, 120]);
-  const shineY = useTransform(mouseY, [-1, 1], [-80, 80]);
+  const shineX = useTransform(mouseX, [-1, 1], [-150, 150]);
+  const shineY = useTransform(mouseY, [-1, 1], [-100, 100]);
 
   return (
     <motion.div
       className="pointer-events-none absolute inset-0 z-20 overflow-hidden rounded-[22px]"
-      style={{
-        x: shineX,
-        y: shineY,
-      }}
+      style={{ x: shineX, y: shineY }}
     >
-      {/* Primary specular highlight — elongated elliptical reflection */}
+      <div
+        className="absolute -inset-1/2 opacity-[0.18]"
+        style={{
+          background:
+            "linear-gradient(115deg, transparent 25%, rgba(255,255,255,0.5) 40%, rgba(255,255,255,0.12) 50%, transparent 65%)",
+        }}
+      />
       <div
         className="absolute -inset-1/2 opacity-[0.12]"
         style={{
           background:
-            "linear-gradient(115deg, transparent 30%, rgba(255,255,255,0.6) 45%, rgba(255,255,255,0.15) 55%, transparent 70%)",
+            "linear-gradient(220deg, transparent 35%, rgba(201,169,106,0.6) 48%, rgba(201,169,106,0.1) 55%, transparent 65%)",
         }}
       />
-      {/* Secondary warm accent — subtle gold rim from simulated warm light */}
       <div
         className="absolute -inset-1/2 opacity-[0.06]"
         style={{
           background:
-            "linear-gradient(220deg, transparent 40%, rgba(201,169,106,0.5) 50%, transparent 60%)",
+            "linear-gradient(160deg, transparent 30%, rgba(100,200,255,0.4) 45%, transparent 60%)",
         }}
       />
     </motion.div>

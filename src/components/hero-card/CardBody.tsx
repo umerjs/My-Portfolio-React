@@ -17,10 +17,9 @@ interface CardBodyProps {
 }
 
 export function CardBody({ tiltX, tiltY, mouseX, mouseY }: CardBodyProps) {
-  // Dynamic shadow offset based on tilt — shadow moves opposite to tilt direction
-  const shadowX = useTransform(tiltX, (v) => v * -1.5);
-  const shadowY = useTransform(tiltY, (v) => v * 1.5 + 20);
-  const shadowBlur = useTransform(tiltX, (v) => 40 + Math.abs(v) * 2);
+  const shadowX = useTransform(tiltX, (v) => v * -2);
+  const shadowY = useTransform(tiltY, (v) => v * 2 + 25);
+  const shadowBlur = useTransform(tiltX, (v) => 50 + Math.abs(v) * 3);
 
   return (
     <motion.div
@@ -36,10 +35,9 @@ export function CardBody({ tiltX, tiltY, mouseX, mouseY }: CardBodyProps) {
       animate={{ opacity: 1, y: 0, scale: 1 }}
       transition={{
         duration: ENTRANCE_DURATION,
-        ease: [0.22, 1, 0.36, 1], // custom cubic-bezier for premium entrance
+        ease: [0.22, 1, 0.36, 1],
       }}
     >
-      {/* ─── Dynamic drop shadow ─── */}
       <motion.div
         className="absolute inset-0 rounded-[22px]"
         style={{
@@ -47,31 +45,32 @@ export function CardBody({ tiltX, tiltY, mouseX, mouseY }: CardBodyProps) {
           boxShadow: useTransform(
             [shadowX, shadowY, shadowBlur],
             ([sx, sy, sb]) =>
-              `${sx}px ${sy}px ${sb}px rgba(0,0,0,0.45), 0 0 80px rgba(0,0,0,0.15)`,
+              [
+                `${sx}px ${sy}px ${sb}px rgba(0,0,0,0.5)`,
+                "0 0 100px rgba(0,0,0,0.2)",
+                "0 0 60px rgba(201,169,106,0.06)",
+              ].join(", "),
           ),
         }}
       />
 
-      {/* ─── Depth layers (behind the card face) ─── */}
       <DepthLayer tiltX={tiltX} tiltY={tiltY} />
 
-      {/* ─── Card face content ─── */}
       <div
         className="relative z-10 overflow-hidden"
         style={{
           width: CARD_WIDTH,
           height: CARD_HEIGHT,
           borderRadius: CARD_BORDER_RADIUS,
-          boxShadow: `
-            inset 0 1px 0 rgba(255,255,255,0.08),
-            inset 0 -1px 0 rgba(255,255,255,0.03),
-            0 0 0 1px rgba(255,255,255,0.06)
-          `,
+          boxShadow: [
+            "inset 0 1px 0 rgba(255,255,255,0.1)",
+            "inset 0 -1px 0 rgba(255,255,255,0.03)",
+            "0 0 0 1px rgba(255,255,255,0.08)",
+            "0 0 30px rgba(201,169,106,0.05)",
+          ].join(", "),
         }}
       >
         <CardFace />
-
-        {/* ─── Specular shine overlay ─── */}
         <ShineOverlay mouseX={mouseX} mouseY={mouseY} />
       </div>
     </motion.div>
