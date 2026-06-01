@@ -136,7 +136,7 @@ export function Hero() {
         </motion.div>
       </motion.div>
 
-      <HangingCard className="self-start ml-0 -mt-36 md:-mt-44 -ml-4 sm:-ml-6 lg:-ml-8" />
+      <HangingCard className="self-start md:ml-0 md:-mt-44 md:-ml-4 lg:-ml-8 max-w-full" />
     </section>
   );
 }
