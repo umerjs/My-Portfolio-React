@@ -1,10 +1,5 @@
 import { motion, useTransform, type MotionValue } from "framer-motion";
-import {
-  CARD_WIDTH,
-  CARD_HEIGHT,
-  CARD_BORDER_RADIUS,
-  ENTRANCE_DURATION,
-} from "./constants";
+import { CARD_BORDER_RADIUS, ENTRANCE_DURATION } from "./constants";
 import { CardFace } from "./CardFace";
 import { ShineOverlay } from "./ShineOverlay";
 import { DepthLayer } from "./DepthLayer";
@@ -12,21 +7,17 @@ import { DepthLayer } from "./DepthLayer";
 interface CardBodyProps {
   tiltX: MotionValue<number>;
   tiltY: MotionValue<number>;
-  mouseX: MotionValue<number>;
-  mouseY: MotionValue<number>;
 }
 
-export function CardBody({ tiltX, tiltY, mouseX, mouseY }: CardBodyProps) {
+export function CardBody({ tiltX, tiltY }: CardBodyProps) {
   const shadowX = useTransform(tiltX, (v) => v * -2);
   const shadowY = useTransform(tiltY, (v) => v * 2 + 25);
   const shadowBlur = useTransform(tiltX, (v) => 50 + Math.abs(v) * 3);
 
   return (
     <motion.div
-      className="relative will-change-transform"
+      className="relative will-change-transform w-[clamp(280px,85vw,340px)] h-[clamp(380px,110vw,480px)]"
       style={{
-        width: CARD_WIDTH,
-        height: CARD_HEIGHT,
         transformStyle: "preserve-3d",
         rotateY: tiltX,
         rotateX: tiltY,
@@ -39,7 +30,7 @@ export function CardBody({ tiltX, tiltY, mouseX, mouseY }: CardBodyProps) {
       }}
     >
       <motion.div
-        className="absolute inset-0 rounded-[22px]"
+        className="absolute inset-0 rounded-[22px] overflow-hidden"
         style={{
           filter: "blur(1px)",
           boxShadow: useTransform(
@@ -52,15 +43,15 @@ export function CardBody({ tiltX, tiltY, mouseX, mouseY }: CardBodyProps) {
               ].join(", "),
           ),
         }}
-      />
-
-      <DepthLayer tiltX={tiltX} tiltY={tiltY} />
+      >
+        <DepthLayer tiltX={tiltX} tiltY={tiltY} />
+      </motion.div>
 
       <div
         className="relative z-10 overflow-hidden"
         style={{
-          width: CARD_WIDTH,
-          height: CARD_HEIGHT,
+          width: "100%",
+          height: "100%",
           borderRadius: CARD_BORDER_RADIUS,
           boxShadow: [
             "inset 0 1px 0 rgba(255,255,255,0.1)",
@@ -71,7 +62,7 @@ export function CardBody({ tiltX, tiltY, mouseX, mouseY }: CardBodyProps) {
         }}
       >
         <CardFace />
-        <ShineOverlay mouseX={mouseX} mouseY={mouseY} />
+        <ShineOverlay />
       </div>
     </motion.div>
   );

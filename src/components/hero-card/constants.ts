@@ -22,15 +22,26 @@ export const CARD_WIDTH = 340;
 export const CARD_HEIGHT = 480;
 export const CARD_BORDER_RADIUS = 22;
 
-export const ROPE_HEIGHT = 120;
-export const ROPE_WIDTH = 3;
+export const ROPE_HEIGHT = 100;
+export const ROPE_WIDTH = 14;
 
 export const DEFAULT_PROFILE: CardProfile = {
   avatarUrl: "https://avatars.githubusercontent.com/u/178928829?v=4",
   name: "Umer Memon",
   title: "Full Stack Developer",
-  stackBadges: ["React", "TypeScript", "Next.js", "Tailwind"],
-  idCode: "0x004",
+  stackBadges: [
+    "HTML",
+    "CSS",
+    "JavaScript",
+    "Tailwind",
+    "React",
+    "Next.js",
+    "TypeScript",
+    "Node.js",
+    "Express",
+    "MongoDB ",
+  ],
+  idCode: "488103",
   year: "2026",
   accessLevel: "All Areas",
 };
@@ -55,3 +66,6 @@ export const COLORS = {
   white70: "rgba(255, 255, 255, 0.70)",
   white80: "rgba(255, 255, 255, 0.80)",
 } as const;
+
+export const CARD_WIDTH_CLAMP = "clamp(300px, 85vw, 340px)";
+export const CARD_HEIGHT_CLAMP = "clamp(400px, 120vw, 480px)";

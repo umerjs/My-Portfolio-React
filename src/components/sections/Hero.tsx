@@ -7,7 +7,7 @@ export function Hero() {
   return (
     <section
       id="home"
-      className="min-h-[85vh] flex flex-col md:flex-row items-center justify-between pt-20 relative gap-12"
+      className="min-h-[85vh] bottom-0 flex flex-col md:flex-row items-center justify-between pt-12 md:pt-20 relative gap-8 md:gap-12"
     >
       <motion.div
         initial={{ opacity: 0 }}
@@ -136,7 +136,7 @@ export function Hero() {
         </motion.div>
       </motion.div>
 
-      <HangingCard />
+      <HangingCard className="self-start ml-0 -mt-36 md:-mt-44 -ml-4 sm:-ml-6 lg:-ml-8" />
     </section>
   );
 }

@@ -1,3 +1,4 @@
+// src/components/hero-card/HangingCard.tsx
 import { motion } from "framer-motion";
 import { useMouseTilt } from "./useMouseTilt";
 import { Rope } from "./Rope";
@@ -17,11 +18,12 @@ interface HangingCardProps {
 export default function HangingCard({ className = "" }: HangingCardProps) {
   const { containerRef, tiltX, tiltY, mouseX, mouseY, ropeSway } =
     useMouseTilt();
-  const [reducedMotion, setReducedMotion] = useState(false);
+  const [reducedMotion, setReducedMotion] = useState(
+    () => window.matchMedia("(prefers-reduced-motion: reduce)").matches,
+  );
 
   useEffect(() => {
     const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
-    setReducedMotion(mq.matches);
     const handler = (e: MediaQueryListEvent) => setReducedMotion(e.matches);
     mq.addEventListener("change", handler);
     return () => mq.removeEventListener("change", handler);
@@ -30,11 +32,15 @@ export default function HangingCard({ className = "" }: HangingCardProps) {
   return (
     <div
       ref={containerRef}
-      className={`relative flex items-start justify-center select-none ${className}`}
+      className={`relative flex items-start justify-start select-none ${className}`}
       style={{
         perspective: PERSPECTIVE_PX,
         perspectiveOrigin: "50% 0%",
+        // KEY FIX: touch-action pan-y lets the browser handle vertical scroll
+        // natively — the card tilt only responds to horizontal pointer movement
         touchAction: "pan-y",
+        // Ensure the card container never intercepts vertical swipes
+        overscrollBehavior: "none",
       }}
     >
       <AmbientGlow mouseX={mouseX} mouseY={mouseY} />
@@ -44,6 +50,8 @@ export default function HangingCard({ className = "" }: HangingCardProps) {
         style={{
           transformStyle: "preserve-3d",
           transformOrigin: "top center",
+          // Prevent this element from creating a scroll trap
+          pointerEvents: "none",
         }}
         {...(reducedMotion
           ? {}
@@ -63,12 +71,7 @@ export default function HangingCard({ className = "" }: HangingCardProps) {
             })}
       >
         <Rope ropeSway={ropeSway} />
-        <CardBody
-          tiltX={tiltX}
-          tiltY={tiltY}
-          mouseX={mouseX}
-          mouseY={mouseY}
-        />
+        <CardBody tiltX={tiltX} tiltY={tiltY} />
       </motion.div>
     </div>
   );

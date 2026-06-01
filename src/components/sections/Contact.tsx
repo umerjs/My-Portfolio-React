@@ -55,20 +55,19 @@ export function Contact() {
       setTimeout(() => {
         setIsSuccess(false);
       }, 5000);
-    } catch (err: any) {
-      console.error("EmailJS Error:", err);
-      console.log("Status:", err?.status);
-      console.log("Text:", err?.text);
+    } catch (err: unknown) {
+      const e = err as { status?: number; text?: string };
+      console.error("EmailJS Error:", e);
+      console.log("Status:", e?.status);
+      console.log("Text:", e?.text);
 
-      if (err?.status === 412) {
+      if (e?.status === 412) {
         setError(
-          err?.text ||
+          e?.text ||
             "EmailJS configuration error. Check Service ID, Template ID and Public Key.",
         );
       } else {
-        setError(
-          err?.text || "Failed to send message. Please try again later.",
-        );
+        setError(e?.text || "Failed to send message. Please try again later.");
       }
     } finally {
       setIsSubmitting(false);

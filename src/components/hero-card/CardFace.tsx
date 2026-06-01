@@ -1,6 +1,14 @@
-import { CARD_BORDER_RADIUS, DEFAULT_PROFILE, COLORS } from "./constants";
+import { CARD_BORDER_RADIUS, DEFAULT_PROFILE } from "./constants";
 import type { CardProfile } from "./types";
-import qrCodeImg from "@/assets/Linkedin.png";
+import linkedinQr from "@/assets/Linkedin.png";
+
+/* ══════════════════════════════════════════════════════════════
+   EDITABLE DIMENSIONS — tweak these to adjust the card layout
+   ══════════════════════════════════════════════════════════════ */
+const QR_SIZE = 56; // QR code width/height in px
+const AVATAR_SIZE = 98; // avatar width/height in px
+const PADDING_X = 20; // horizontal padding in px  (20 = px-5)
+const PADDING_Y = 36; // vertical padding in px     (16 = py-4)
 
 interface CardFaceProps {
   profile?: CardProfile;
@@ -14,85 +22,98 @@ export function CardFace({ profile = DEFAULT_PROFILE }: CardFaceProps) {
         width: "100%",
         height: "100%",
         borderRadius: CARD_BORDER_RADIUS,
-        background: `linear-gradient(180deg, #1a1a20 0%, #121216 30%, #0a0a0e 100%)`,
+        background:
+          "linear-gradient(180deg, #1a1a20 0%, #121216 30%, #0a0a0e 100%)",
       }}
     >
+      {/* background glow — edit the 0.10 opacity and 55% size */}
       <div
-        className="absolute inset-0"
+        className="absolute inset-0 pointer-events-none"
         style={{
           background:
-            "radial-gradient(ellipse at 50% 0%, rgba(201,169,106,0.08) 0%, transparent 60%)",
+            "radial-gradient(ellipse at 50% 0%, rgba(201,169,106,0.10) 0%, transparent 55%)",
         }}
       />
+      {/* inner card border */}
       <div
-        className="absolute inset-0 rounded-[22px]"
+        className="absolute inset-0 rounded-[22px] pointer-events-none"
         style={{
           boxShadow:
             "inset 0 1px 0 rgba(255,255,255,0.08), inset 0 -1px 0 rgba(0,0,0,0.4)",
         }}
       />
 
-      <div className="relative z-10 flex flex-col h-full px-6 py-5">
+      {/* ── MAIN CONTENT ── */}
+      <div
+        className="relative z-10 flex flex-col h-full"
+        style={{ padding: `${PADDING_Y}px ${PADDING_X}px` }}
+      >
+        {/* ═══ ROW 1: Label ═══ */}
         <div className="flex items-center justify-between">
-          <span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-white/60">
+          <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-white/50">
             Developer
           </span>
-          <span className="text-[11px] font-semibold text-[#c9a96a]">
+          <span className="text-[10px] font-semibold text-[#c9a96a] tracking-widest">
             {profile.year}
           </span>
         </div>
 
-        <div className="flex flex-col items-center mt-6">
-          <div className="relative mb-4">
+        {/* ═══ ROW 2: Avatar + Name ═══ */}
+        <div className="flex flex-col items-center mt-4">
+          <div className="relative mb-3">
             <div
-              className="absolute -inset-2 rounded-full"
+              className="absolute -inset-2 rounded-full pointer-events-none"
               style={{
                 background:
-                  "radial-gradient(circle, rgba(201,169,106,0.25) 0%, transparent 70%)",
-                filter: "blur(8px)",
+                  "radial-gradient(circle, rgba(201,169,106,0.30) 0%, transparent 70%)",
+                filter: "blur(10px)",
               }}
             />
             <img
               src={profile.avatarUrl}
               alt={profile.name}
-              width={96}
-              height={96}
-              className="rounded-full object-cover border-2 border-[#c9a96a]/30"
+              width={AVATAR_SIZE}
+              height={AVATAR_SIZE}
+              className="rounded-full object-cover"
               style={{
-                width: 96,
-                height: 96,
-                boxShadow: "0 4px 20px rgba(0,0,0,0.5)",
+                width: AVATAR_SIZE,
+                height: AVATAR_SIZE,
+                border: "2px solid rgba(201,169,106,0.45)",
+                boxShadow:
+                  "0 0 0 4px rgba(201,169,106,0.08), 0 6px 24px rgba(0,0,0,0.55)",
               }}
             />
           </div>
           <h2
-            className="text-[22px] font-bold text-white tracking-tight"
+            className="text-[21px] font-bold text-white tracking-tight"
             style={{ lineHeight: 1.2 }}
           >
             {profile.name}
           </h2>
-          <p className="mt-1 text-[11px] font-semibold uppercase tracking-[0.2em] text-[#c9a96a]">
+          <p className="mt-1 text-[10px] font-semibold uppercase tracking-[0.22em] text-[#c9a96a]">
             {profile.title}
           </p>
         </div>
 
+        {/* ═══ DIVIDER ═══ */}
         <div
-          className="mx-auto w-3/4 h-px my-5"
+          className="mx-auto w-3/4 h-px my-3"
           style={{
             background:
-              "linear-gradient(90deg, transparent, rgba(201,169,106,0.4), transparent)",
+              "linear-gradient(90deg, transparent, rgba(201,169,106,0.45), transparent)",
           }}
         />
 
-        <div className="flex flex-wrap justify-center gap-2 px-2">
+        {/* ═══ ROW 3: Stack Badges ═══ */}
+        <div className="flex flex-wrap justify-center gap-1.5 px-1">
           {profile.stackBadges.map((badge) => (
             <span
               key={badge}
-              className="px-3 py-1 text-[11px] font-medium rounded-full"
+              className="px-2.5 py-[3px] text-[10px] font-medium rounded-full"
               style={{
                 background: "rgba(255,255,255,0.06)",
-                border: "1px solid rgba(255,255,255,0.08)",
-                color: "rgba(255,255,255,0.8)",
+                border: "1px solid rgba(255,255,255,0.10)",
+                color: "rgba(255,255,255,0.75)",
               }}
             >
               {badge}
@@ -100,32 +121,55 @@ export function CardFace({ profile = DEFAULT_PROFILE }: CardFaceProps) {
           ))}
         </div>
 
-        <div className="flex-1 min-h-0" />
+        {/* ═══ SPACER — pushes bottom section down ═══ */}
+        <div className="flex-1" />
 
-        <div className="flex items-end justify-between mt-auto pt-3">
-          <div>
-            <div className="text-[9px] font-semibold uppercase tracking-[0.2em] text-white/40 mb-1">
-              ID
+        {/* ═══ ROW 4: Bottom — QR + ID / Access ═══ */}
+        <div className="flex items-end justify-between pt-3 border-t border-white/[0.06]">
+          {/* ID / Access */}
+          <div className="flex gap-6">
+            <div>
+              <div className="text-[8px] font-semibold uppercase tracking-[0.2em] text-white/35 mb-0.5">
+                ID
+              </div>
+              <div className="font-mono text-[11px] text-white/75">
+                {profile.idCode}
+              </div>
             </div>
-            <div className="font-mono text-[12px] text-white/80">
-              {profile.idCode}
-            </div>
-            <div className="text-[9px] font-semibold uppercase tracking-[0.2em] text-white/40 mt-2 mb-1">
-              Access
-            </div>
-            <div className="text-[13px] text-white/80">
-              {profile.accessLevel}
+            <div>
+              <div className="text-[8px] font-semibold uppercase tracking-[0.2em] text-white/35 mb-0.5">
+                Access
+              </div>
+              <div className="text-[11px] text-white/75">
+                {profile.accessLevel}
+              </div>
             </div>
           </div>
 
-          <img
-            src={qrCodeImg}
-            alt="LinkedIn QR"
-            className="w-[60px] h-[60px] rounded-md object-contain"
+          {/* QR code */}
+          <div
             style={{
-              boxShadow: "0 2px 8px rgba(0,0,0,0.4)",
+              padding: 3,
+              background: "#ffffff",
+              borderRadius: 8,
+              boxShadow:
+                "0 3px 10px rgba(0,0,0,0.5), 0 0 0 1px rgba(201,169,106,0.25)",
             }}
-          />
+          >
+            <img
+              src={linkedinQr}
+              alt="LinkedIn QR"
+              width={QR_SIZE}
+              height={QR_SIZE}
+              style={{
+                width: QR_SIZE,
+                height: QR_SIZE,
+                borderRadius: 4,
+                display: "block",
+                objectFit: "contain",
+              }}
+            />
+          </div>
         </div>
       </div>
     </div>

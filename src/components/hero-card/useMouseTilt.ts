@@ -31,21 +31,26 @@ export function useMouseTilt(): UseMouseTiltReturn {
   );
 
   const ropeSway = useSpring(useTransform(rawX, [-1, 1], [3, -3]), {
-    stiffness: 80, damping: 35, mass: 1.5,
+    stiffness: 80,
+    damping: 35,
+    mass: 1.5,
   });
 
   const mouseX = useSpring(rawX, { stiffness: 200, damping: 30 });
   const mouseY = useSpring(rawY, { stiffness: 200, damping: 30 });
 
-  const handleMove = useCallback((clientX: number, clientY: number) => {
-    const el = containerRef.current;
-    if (!el) return;
-    const rect = el.getBoundingClientRect();
-    const nx = ((clientX - rect.left) / rect.width) * 2 - 1;
-    const ny = ((clientY - rect.top) / rect.height) * 2 - 1;
-    rawX.set(nx);
-    rawY.set(ny);
-  }, [rawX, rawY]);
+  const handleMove = useCallback(
+    (clientX: number, clientY: number) => {
+      const el = containerRef.current;
+      if (!el) return;
+      const rect = el.getBoundingClientRect();
+      const nx = ((clientX - rect.left) / rect.width) * 2 - 1;
+      const ny = ((clientY - rect.top) / rect.height) * 2 - 1;
+      rawX.set(nx);
+      rawY.set(ny);
+    },
+    [rawX, rawY],
+  );
 
   const handleLeave = useCallback(() => {
     rawX.set(0);
