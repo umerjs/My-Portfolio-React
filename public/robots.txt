@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://umer-memon.vercel.app/sitemap.xml
