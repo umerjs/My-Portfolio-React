@@ -5,9 +5,17 @@ import { Globe, Server, Database, Rocket } from "lucide-react";
 
 const counters = [
   { end: 2, suffix: "+", label: "Years Experience" },
-  { end: 40, suffix: "+", label: "Projects Built" },
-  { end: 7, suffix: "+", label: "Happy Clients" },
+  { end: 50, suffix: "+", label: "Projects Built" },
+  { end: 9, suffix: "+", label: "Happy Clients" },
   { end: 16, suffix: "+", label: "GitHub Stars" },
+  { end: 400, suffix: "+", label: "Hours on Code-Camp.Org" },
+  { end: 15, suffix: "+", label: "Certificate's" },
+  { end: 300, suffix: "K", label: "Lines of Code Written" },
+  { end: 7, suffix: "+", label: "Tech Stacks Mastered" },
+  { end: 25, suffix: "+", label: "Workshops Conducted" },
+  { end: 100, suffix: "%", label: "Client Satisfaction" },
+  { end: 5, suffix: "+", label: "Awards Won" },
+  { end: 20, suffix: "+", label: "Community Events" },
 ];
 
 const services = [
