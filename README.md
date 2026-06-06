@@ -151,7 +151,6 @@ Let's connect! Feel free to reach out for collaborations or web development proj
 - 📱 **WhatsApp**: [+92-316-139-5147](https://wa.me/923161395147)
 - 💼 **LinkedIn**: [Umer-The-Dev](https://www.linkedin.com/in/umer-the-dev/)
 - 🐱 **GitHub**: [@umermemon1](https://github.com/umermemon1)
-- 🌐 **Portfolio**: [umer-memon.netlify.app](https://umer-memon.netlify.app/)
 
 ---
 
