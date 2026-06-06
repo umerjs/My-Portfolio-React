@@ -40,7 +40,7 @@ const techStack = [
       "FireStore",
     ],
     color:
-      "group-hover:border-emerald-500/50 group-hover:shadow-emerald-500/20",
+      "group-hover:border-red-500/50 group-hover:shadow-red-500/20",
   },
   {
     category: "Tools",
@@ -53,7 +53,7 @@ const techStack = [
       "NPM",
       "Linux",
     ],
-    color: "group-hover:border-orange-500/50 group-hover:shadow-orange-500/20",
+    color: "group-hover:border-purple-500/50 group-hover:shadow-purple-500/20",
   },
 ];
 
