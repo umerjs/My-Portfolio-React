@@ -1,65 +1,77 @@
-# 💼 Umer Memon - Web Developer Portfolio
+# Umer Memon - Web Developer Portfolio
 
-Welcome to my personal portfolio! This is a fully responsive, modern website built with **HTML**, **Tailwind CSS**, and **JavaScript** to showcase my skills, projects, and contact information in an elegant and professional manner.
+Personal portfolio built with **React 19**, **TypeScript**, **Vite**, **Tailwind CSS v4**, **Framer Motion**, and **GSAP**. Features code-split chunks, lazy-loaded sections, and brotli/gzip compression for maximum load speed.
 
-> 🚫 **Note**: This project is **private** and **not free to use**. For collaborations or usage permissions, please contact me directly.
+> **Note**: This project is **private** and **not free to use**. For collaborations or usage permissions, please contact me directly.
 
 ---
 
-## 🔗 Live Preview
+## Live Preview
 
 👉 [Visit Live Site](https://umer-memon.vercel.app/)
 
 ---
 
-## 📂 Features
+## Features
 
-- ⚡ **Fully responsive design** for mobile, tablet, and desktop
-- 🎯 **Modern cyberpunk aesthetic** with neon color scheme
+- ⚡ **React 19** with server components and concurrent rendering
+- 🎯 **Cyberpunk aesthetic** with dark mode and animated gradient orbs (CSS-only, off main thread)
 - 🧠 **Smooth scrolling** navigation between sections
-- 🧩 **Interactive animated project cards** with hover effects
+- 🧩 **3D hanging card** hero animation with mouse tilt (Framer Motion + custom hooks)
 - 📄 **Resume download** functionality
-- 📱 **Hamburger menu** for mobile devices with smooth animations
-- 🎨 **Custom Tailwind CSS theme** with gradient overlays and backdrop effects
+- 📱 **Hamburger menu** with AnimatePresence transitions
+- 🎨 **shadcn/ui** components with Tailwind CSS v4 theming
 - 🔒 **Private access** – not intended for reuse or redistribution
-- ✨ **Typing animation** for dynamic text effects
-- 💫 **Advanced CSS effects**: gradients, shadows, hover states
+- ✨ **GSAP ScrollTrigger** animations for scroll-reveal effects
+- 💫 **Code splitting**: vendor chunks split by library (react, framer, gsap, ui)
+- 🚀 **Lazy-loaded sections**: below-the-fold content loads as async chunks
+- 📦 **Brotli + Gzip compression** via vite-plugin-compression
 
 ---
 
-## 🚀 Technologies Used
+## Tech Stack
 
-| Technology               | Use Case                                  |
-| ------------------------ | ----------------------------------------- |
-| **HTML5**                | Semantic and structured markup            |
-| **Tailwind CSS**         | Utility-first CSS with custom theme       |
-| **JavaScript**           | Vanilla JS for interactivity and behavior |
-| **Font Awesome 6.5**     | Scalable icon library                     |
-| **Google Fonts (Inter)** | Clean, modern typography                  |
-
----
-
-## 🎨 Design & Theme
-
-This portfolio features a **modern cyberpunk aesthetic** with:
-
-- **Custom Tailwind CSS Color Palette**:
-  - `#00d4ff` - Cyber Blue (Primary)
-  - `#ff0080` - Neon Pink (Accent)
-  - `#8b5cf6` - Electric Purple (Secondary)
-  - `#0a0a0f` - Dark Background
-  - `#1a1a2e` - Medium Dark (Cards)
-
-- **Visual Effects**:
-  - Backdrop blur backgrounds
-  - Gradient text and overlays
-  - Smooth transitions and animations
-  - Glowing shadows on hover
-  - Scale effects on interactive elements
+| Technology | Use Case |
+|------------------------------|----------------------------------------|
+| **React 19** | UI library with concurrent features |
+| **TypeScript** | Type-safe development |
+| **Vite 8** | Build tool with instant HMR |
+| **Tailwind CSS v4** | Utility-first CSS with CSS-first config |
+| **Framer Motion 12** | Declarative animations + LazyMotion |
+| **GSAP 3** | ScrollTrigger and timeline animations |
+| **React Router v7** | Client-side routing context |
+| **shadcn/ui** | Accessible UI primitives |
+| **Lucide React** | Icon library |
+| **EmailJS** | Contact form email service |
+| **Geist Variable** | Typography (via @fontsource-variable) |
 
 ---
 
-## 🖼️ Featured Projects
+## Scripts
+
+| Command | Description |
+|---------|-------------|
+| `npm run dev` | Start Vite dev server with HMR |
+| `npm run build` | TypeScript check + production build |
+| `npm run preview` | Preview production build locally |
+| `npm run lint` | ESLint check |
+| `npm run build:images` | Optimize images with sharp |
+
+---
+
+## Build Optimizations
+
+- **Manual chunk splitting**: `vendor-react` (React, ReactDOM, React Router), `vendor-framer` (Framer Motion), `vendor-gsap` (GSAP), `vendor-ui` (shadcn utilities)
+- **LazyMotion**: Framer Motion loads only `domAnimation` features — no drag/pan/layout bloat
+- **React.lazy + Suspense**: Below-the-fold sections (About, TechStack, Portfolio, Experience, Contact) are async chunks
+- **Terser minification**: drops `console.log` and `debugger` in production
+- **Brotli + Gzip**: pre-compressed assets served by Vercel
+- **CSS-only orb animations**: animated backgrounds run on the compositor thread, not JS
+- **Immutable cache**: hashed assets cached for 1 year; index.html never cached
+
+---
+
+## Featured Projects
 
 ### 1. **DilseBuy** - E-Commerce Interface
 
@@ -117,16 +129,15 @@ This portfolio features a **modern cyberpunk aesthetic** with:
 
 ---
 
-## 🎓 Skills & Technologies Breakdown
+## Skills & Technologies Breakdown
 
 **Frontend Development:**
 
+- React 19, Next.js
+- TypeScript, JavaScript (ES2023+)
+- Tailwind CSS v4, CSS3
+- Framer Motion, GSAP
 - HTML5 (Semantic Markup)
-- CSS3 (Advanced Styling, Animations, Gradients)
-- Tailwind CSS (Utility-first Framework)
-- JavaScript (DOM Manipulation, Event Handling, Animations)
-- React.js
-- Next.js
 
 **Backend & Databases:**
 
@@ -137,53 +148,40 @@ This portfolio features a **modern cyberpunk aesthetic** with:
 **Tools & Deployment:**
 
 - Git & GitHub
-- Netlify
+- Vite
 - Vercel
 - VS Code
 
 ---
 
-## 📬 Contact Me
+## Contact Me
 
 Let's connect! Feel free to reach out for collaborations or web development projects.
 
-- 📧 **Email**: [umery101@gmail.com](mailto:umery101@gmail.com)
-- 📱 **WhatsApp**: [+92-316-139-5147](https://wa.me/923161395147)
-- 💼 **LinkedIn**: [Umer-The-Dev](https://www.linkedin.com/in/umer-the-dev/)
-- 🐱 **GitHub**: [@umermemon1](https://github.com/umermemon1)
+- **Email**: [umery101@gmail.com](mailto:umery101@gmail.com)
+- **WhatsApp**: [+92-316-139-5147](https://wa.me/923161395147)
+- **LinkedIn**: [Umer-The-Dev](https://www.linkedin.com/in/umer-the-dev/)
+- **GitHub**: [@umermemon1](https://github.com/umermemon1)
 
 ---
 
-## � About This Project
-
-This portfolio is a **personal showcase** of my web development skills and projects. It demonstrates:
-
-- Modern web design principles
-- Responsive, mobile-first development
-- Interactive user interfaces
-- Clean, semantic HTML structure
-- Advanced CSS and Tailwind CSS techniques
-- Vanilla JavaScript functionality
-
----
-
-## 📜 License & Usage
+## License & Usage
 
 This project is released under the **MIT License**, but with important additional restrictions:
 
-### ⚠️ **Important Restrictions**
+### **Important Restrictions**
 
-- 🚫 **Not free to use or redistribute** as your own portfolio or business site
-- 🚫 **No plagiarism** of design, code, or content without permission
-- 📥 **Permission required** for any commercial, educational, or public reuse
-- 💬 **Contact me** for licensing, collaboration, or usage inquiries at [umery101@gmail.com](mailto:umery101@gmail.com)
+- **Not free to use or redistribute** as your own portfolio or business site
+- **No plagiarism** of design, code, or content without permission
+- **Permission required** for any commercial, educational, or public reuse
+- **Contact me** for licensing, collaboration, or usage inquiries at [umery101@gmail.com](mailto:umery101@gmail.com)
 
-### ✅ **What You Can Do**
+### **What You Can Do**
 
-- 🔍 Use this as **reference** for your own portfolio design
-- 📚 **Learn** from the code structure and techniques
-- 🔧 **Fork** and create your own unique version
-- 💡 **Adapt** the design patterns for your projects (with proper attribution)
+- Use this as **reference** for your own portfolio design
+- **Learn** from the code structure and techniques
+- **Fork** and create your own unique version
+- **Adapt** the design patterns for your projects (with proper attribution)
 
 ---
 
