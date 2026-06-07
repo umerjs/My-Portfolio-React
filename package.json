@@ -9,6 +9,8 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
+    "build:images": "node scripts/optimize-images.mjs",
+    "build:full": "node scripts/optimize-images.mjs && tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview"
   },
@@ -41,9 +43,12 @@
     "eslint-plugin-react-refresh": "^0.5.2",
     "globals": "^17.5.0",
     "postcss": "^8.5.13",
+    "sharp": "^0.34.5",
     "tailwindcss": "^4.2.4",
+    "terser": "^5.37.0",
     "typescript": "~6.0.2",
     "typescript-eslint": "^8.58.2",
-    "vite": "^8.0.10"
+    "vite": "^8.0.10",
+    "vite-plugin-compression": "^0.5.1"
   }
 }

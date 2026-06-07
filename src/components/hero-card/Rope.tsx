@@ -1,4 +1,4 @@
-import { motion, type MotionValue, useTransform } from "framer-motion";
+import { m, type MotionValue, useTransform } from "framer-motion";
 import { ROPE_HEIGHT, ENTRANCE_DURATION } from "./constants";
 
 interface RopeProps {
@@ -9,7 +9,7 @@ export function Rope({ ropeSway }: RopeProps) {
   const ropeSkew = useTransform(ropeSway, (v) => v * 0.3);
 
   return (
-    <motion.div
+    <m.div
       className="relative z-10 flex flex-col items-center"
       initial={{ opacity: 0, scaleY: 0 }}
       animate={{ opacity: 1, scaleY: 1 }}
@@ -59,7 +59,7 @@ export function Rope({ ropeSway }: RopeProps) {
       />
 
       {/* Woven fabric lanyard strap */}
-      <motion.div
+      <m.div
         className="relative overflow-hidden"
         style={{
           width: 18,
@@ -136,7 +136,7 @@ export function Rope({ ropeSway }: RopeProps) {
               "linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.06) 100%)",
           }}
         />
-      </motion.div>
+      </m.div>
 
       {/* Metal clip assembly */}
       <div className="flex flex-col items-center" style={{ marginTop: -1 }}>
@@ -192,6 +192,6 @@ export function Rope({ ropeSway }: RopeProps) {
           }}
         />
       </div>
-    </motion.div>
+    </m.div>
   );
 }

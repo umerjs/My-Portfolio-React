@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 
 const experiences = [
   {
@@ -38,7 +38,7 @@ export function Experience() {
 
       <div className="relative border-l border-border/50 ml-4 md:ml-6 space-y-12">
         {experiences.map((exp, index) => (
-          <motion.div
+          <m.div
             key={index}
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -61,7 +61,7 @@ export function Experience() {
             <p className="text-muted-foreground leading-relaxed">
               {exp.description}
             </p>
-          </motion.div>
+          </m.div>
         ))}
       </div>
     </section>

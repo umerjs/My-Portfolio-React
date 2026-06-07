@@ -1,6 +1,6 @@
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { Card, CardContent } from "../ui/card";
-import { useState } from "react";
+import { useState, memo } from "react";
 
 const techStack = [
   {
@@ -60,7 +60,7 @@ const techStack = [
 export function TechStack() {
   return (
     <section id="stack" className="py-20">
-      <motion.div
+      <m.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-100px" }}
@@ -68,19 +68,19 @@ export function TechStack() {
       >
         <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-4 flex items-center gap-4">
           Tech Arsenal
-          <motion.span
+          <m.span
             animate={{ rotate: 360 }}
             transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
             className="text-primary text-2xl inline-block"
           >
             ✦
-          </motion.span>
+          </m.span>
         </h2>
         <p className="text-muted-foreground max-w-2xl text-xl">
           Passionate developer with expertise in modern web technologies and
           design.
         </p>
-      </motion.div>
+      </m.div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         {techStack.map((stack, index) => (
@@ -91,7 +91,7 @@ export function TechStack() {
   );
 }
 
-function GlowCard({
+const GlowCard = memo(function GlowCard({
   stack,
   index,
 }: {
@@ -109,7 +109,7 @@ function GlowCard({
   };
 
   return (
-    <motion.div
+    <m.div
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
@@ -133,7 +133,7 @@ function GlowCard({
           </h3>
           <ul className="space-y-4">
             {stack.items.map((item, i) => (
-              <motion.li
+              <m.li
                 key={item}
                 initial={{ opacity: 0, x: -10 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -142,11 +142,11 @@ function GlowCard({
               >
                 <span className="w-1.5 h-1.5 rounded-full bg-primary/50 mr-4 group-hover:bg-primary transition-colors group-hover:scale-150" />
                 {item}
-              </motion.li>
+              </m.li>
             ))}
           </ul>
         </CardContent>
       </Card>
-    </motion.div>
+    </m.div>
   );
-}
+});

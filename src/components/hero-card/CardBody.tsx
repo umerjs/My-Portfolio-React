@@ -1,4 +1,4 @@
-import { motion, useTransform, type MotionValue } from "framer-motion";
+import { m, useTransform, type MotionValue } from "framer-motion";
 import { CARD_BORDER_RADIUS, ENTRANCE_DURATION } from "./constants";
 import { CardFace } from "./CardFace";
 import { ShineOverlay } from "./ShineOverlay";
@@ -15,7 +15,7 @@ export function CardBody({ tiltX, tiltY }: CardBodyProps) {
   const shadowBlur = useTransform(tiltX, (v) => 50 + Math.abs(v) * 3);
 
   return (
-    <motion.div
+    <m.div
       className="relative will-change-transform w-[clamp(280px,85vw,340px)] h-[clamp(380px,110vw,480px)]"
       style={{
         transformStyle: "preserve-3d",
@@ -29,7 +29,7 @@ export function CardBody({ tiltX, tiltY }: CardBodyProps) {
         ease: [0.22, 1, 0.36, 1],
       }}
     >
-      <motion.div
+      <m.div
         className="absolute inset-0 rounded-[22px] overflow-hidden"
         style={{
           filter: "blur(1px)",
@@ -45,7 +45,7 @@ export function CardBody({ tiltX, tiltY }: CardBodyProps) {
         }}
       >
         <DepthLayer tiltX={tiltX} tiltY={tiltY} />
-      </motion.div>
+      </m.div>
 
       <div
         className="relative z-10 overflow-hidden"
@@ -64,6 +64,6 @@ export function CardBody({ tiltX, tiltY }: CardBodyProps) {
         <CardFace />
         <ShineOverlay />
       </div>
-    </motion.div>
+    </m.div>
   );
 }

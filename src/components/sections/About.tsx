@@ -1,8 +1,7 @@
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { useCounter } from "@/hooks/useCounter";
 import { useEffect, useRef, memo } from "react";
 import { Globe, Server, Database, Rocket } from "lucide-react";
-
 const counters = [
   { end: 2, suffix: "+", label: "Years Experience" },
   { end: 50, suffix: "+", label: "Projects Built" },
@@ -53,7 +52,7 @@ const CounterCard = memo(function CounterCard({
   }, [startCounting]);
 
   return (
-    <motion.div
+    <m.div
       ref={cardRef}
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
@@ -66,7 +65,7 @@ const CounterCard = memo(function CounterCard({
         {suffix}
       </p>
       <p className="mt-2 text-xs text-muted-foreground">{label}</p>
-    </motion.div>
+    </m.div>
   );
 });
 
@@ -95,14 +94,14 @@ export function About() {
     <section id="about" className="relative py-24">
       <div className="mx-auto max-w-7xl px-6">
         {/* Header */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
           className="mb-16 text-center"
         >
-          <motion.span
+          <m.span
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.1 }}
@@ -110,21 +109,21 @@ export function About() {
             className="mb-2 inline-block text-sm font-medium text-primary"
           >
             🙋 About Me
-          </motion.span>
+          </m.span>
           <h2 className="mb-4 font-syne text-4xl md:text-5xl font-bold text-foreground">
             About Me
           </h2>
-        </motion.div>
+        </m.div>
 
         {/* Bio Section */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true, margin: "-100px" }}
           className="mb-20 grid items-center gap-12 md:grid-cols-2"
         >
-          <motion.div
+          <m.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
@@ -141,8 +140,8 @@ export function About() {
                 ></img>
               </div>
             </div>
-          </motion.div>
-          <motion.div
+          </m.div>
+          <m.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
@@ -161,7 +160,7 @@ export function About() {
               find me exploring new technologies, contributing to open source,
               or writing technical articles.
             </p>
-            <motion.div
+            <m.div
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.3 }}
@@ -176,12 +175,12 @@ export function About() {
                   {tech}
                 </span>
               ))}
-            </motion.div>
-          </motion.div>
-        </motion.div>
+            </m.div>
+          </m.div>
+        </m.div>
 
         {/* Counter Cards */}
-        <motion.div
+        <m.div
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -191,10 +190,10 @@ export function About() {
           {counters.map((c, idx) => (
             <CounterCard key={c.label} {...c} index={idx} />
           ))}
-        </motion.div>
+        </m.div>
 
         {/* Services Section */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.5 }}
@@ -203,7 +202,7 @@ export function About() {
           <h3 className="mb-10 text-center font-syne text-2xl md:text-3xl font-bold text-foreground">
             What I Do
           </h3>
-          <motion.div
+          <m.div
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
@@ -211,29 +210,29 @@ export function About() {
             className="grid grid-cols-2 gap-4 md:grid-cols-4"
           >
             {services.map(({ icon: Icon, label, desc }) => (
-              <motion.div
+              <m.div
                 key={label}
                 variants={itemVariants}
                 className="group relative rounded-xl border border-border bg-card/50 backdrop-blur-sm p-6 text-center transition-all duration-300 hover:border-primary/50 hover:bg-card hover:shadow-lg hover:shadow-primary/10"
               >
                 <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                 <div className="relative">
-                  <motion.div
+                  <m.div
                     whileHover={{ scale: 1.1, rotate: 5 }}
                     transition={{ duration: 0.2 }}
                     className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors"
                   >
                     <Icon size={24} className="text-primary" />
-                  </motion.div>
+                  </m.div>
                   <h4 className="mb-2 font-syne text-sm font-bold text-foreground">
                     {label}
                   </h4>
                   <p className="text-xs text-muted-foreground">{desc}</p>
                 </div>
-              </motion.div>
+              </m.div>
             ))}
-          </motion.div>
-        </motion.div>
+          </m.div>
+        </m.div>
       </div>
     </section>
   );

@@ -1,5 +1,5 @@
 // src/components/hero-card/HangingCard.tsx
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { useMouseTilt } from "./useMouseTilt";
 import { Rope } from "./Rope";
 import { CardBody } from "./CardBody";
@@ -45,7 +45,7 @@ export default function HangingCard({ className = "" }: HangingCardProps) {
     >
       <AmbientGlow mouseX={mouseX} mouseY={mouseY} />
 
-      <motion.div
+      <m.div
         className="relative flex flex-col items-center will-change-transform"
         style={{
           transformStyle: "preserve-3d",
@@ -72,7 +72,7 @@ export default function HangingCard({ className = "" }: HangingCardProps) {
       >
         <Rope ropeSway={ropeSway} />
         <CardBody tiltX={tiltX} tiltY={tiltY} />
-      </motion.div>
+      </m.div>
     </div>
   );
 }

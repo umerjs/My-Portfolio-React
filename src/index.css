@@ -128,3 +128,32 @@
     @apply font-sans;
   }
 }
+
+/* CSS-driven background orb animations - run on compositor thread instead of main-thread JS */
+@keyframes orb-1 {
+  0%, 100% { transform: translate(0px, 0px) scale(1) rotate(0deg); }
+  25% { transform: translate(100px, -100px) scale(1.2) rotate(90deg); }
+  50% { transform: translate(-50px, 50px) scale(0.8) rotate(180deg); }
+  75% { transform: translate(50px, -50px) scale(1.1) rotate(270deg); }
+}
+@keyframes orb-2 {
+  0%, 100% { transform: translate(0px, 0px) scale(1) rotate(360deg); }
+  25% { transform: translate(-120px, 120px) scale(0.9) rotate(270deg); }
+  50% { transform: translate(80px, -60px) scale(1.3) rotate(180deg); }
+  75% { transform: translate(-40px, 80px) scale(1.1) rotate(90deg); }
+}
+@keyframes orb-3 {
+  0%, 100% { transform: translate(0px, 0px) scale(1); }
+  33% { transform: translate(50px, 150px) scale(1.5); }
+  66% { transform: translate(-100px, -150px) scale(0.8); }
+}
+
+.orb { will-change: transform; }
+.orb-1 { animation: orb-1 25s linear infinite; }
+.orb-2 { animation: orb-2 30s linear infinite; }
+.orb-3 { animation: orb-3 20s linear infinite; }
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .orb { animation: none !important; }
+}

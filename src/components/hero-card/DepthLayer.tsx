@@ -1,4 +1,4 @@
-import { motion, useTransform, type MotionValue } from "framer-motion";
+import { m, useTransform, type MotionValue } from "framer-motion";
 
 interface DepthLayerProps {
   tiltX: MotionValue<number>;
@@ -10,7 +10,7 @@ export function DepthLayer({ tiltX, tiltY }: DepthLayerProps) {
   const offsetY = useTransform(tiltY, (v) => v * -0.4);
 
   return (
-    <motion.div
+    <m.div
       className="pointer-events-none absolute inset-0 z-0"
       style={{
         rotateY: offsetX,
@@ -67,6 +67,6 @@ export function DepthLayer({ tiltX, tiltY }: DepthLayerProps) {
             "linear-gradient(180deg, rgba(255,255,255,0.03), transparent)",
         }}
       />
-    </motion.div>
+    </m.div>
   );
 }

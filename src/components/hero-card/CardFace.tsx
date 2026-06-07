@@ -1,6 +1,6 @@
 import { CARD_BORDER_RADIUS, DEFAULT_PROFILE } from "./constants";
 import type { CardProfile } from "./types";
-import linkedinQr from "@/assets/Linkedin.png";
+import linkedinQr from "@/assets/Linkedin.webp";
 
 /* ══════════════════════════════════════════════════════════════
    EDITABLE DIMENSIONS — tweak these to adjust the card layout
@@ -74,6 +74,7 @@ export function CardFace({ profile = DEFAULT_PROFILE }: CardFaceProps) {
               alt={profile.name}
               width={AVATAR_SIZE}
               height={AVATAR_SIZE}
+              fetchPriority="high"
               className="rounded-full object-cover"
               style={{
                 width: AVATAR_SIZE,

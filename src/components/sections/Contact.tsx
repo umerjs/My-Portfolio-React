@@ -1,6 +1,5 @@
-import { useState } from "react";
-import emailjs from "@emailjs/browser";
-import { motion } from "framer-motion";
+import { useState, useEffect, useRef, useCallback } from "react";
+import { m } from "framer-motion";
 import { Card, CardContent } from "../ui/card";
 import { Input } from "../ui/input";
 import { Textarea } from "../ui/textarea";
@@ -8,75 +7,73 @@ import { Button } from "../ui/button";
 import { Label } from "../ui/label";
 import { Send, Loader2, CheckCircle2, AlertCircle } from "lucide-react";
 
-emailjs.init({
-  publicKey: import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
-  limitRate: {
-    id: "portfolio-contact",
-    throttle: 10000,
-  },
-});
+type EmailJSSdk = typeof import("@emailjs/browser");
 
 export function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const emailjsRef = useRef<EmailJSSdk | null>(null);
+  const formRef = useRef<HTMLFormElement>(null);
 
-  const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
-  const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
-  const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !emailjsRef.current) {
+          import("@emailjs/browser").then((mod) => {
+            mod.default.init({
+              publicKey: import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
+              limitRate: {
+                id: "portfolio-contact",
+                throttle: 10000,
+              },
+            });
+            emailjsRef.current = mod.default as unknown as EmailJSSdk;
+          });
+          observer.disconnect();
+        }
+      },
+      { rootMargin: "200px" },
+    );
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+    const el = document.getElementById("contact");
+    if (el) observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
 
-    setError(null);
-    setIsSuccess(false);
-    setIsSubmitting(true);
+  const handleSubmit = useCallback(
+    async (e: React.FormEvent<HTMLFormElement>) => {
+      e.preventDefault();
+      if (!emailjsRef.current) return;
 
-    try {
-      console.log("EmailJS Config:", {
-        PUBLIC_KEY,
-        SERVICE_ID,
-        TEMPLATE_ID,
-      });
+      setError(null);
+      setIsSuccess(false);
+      setIsSubmitting(true);
 
-      const result = await emailjs.sendForm(
-        SERVICE_ID,
-        TEMPLATE_ID,
-        e.currentTarget,
-        PUBLIC_KEY,
-      );
-
-      console.log("Email sent:", result);
-
-      setIsSuccess(true);
-
-      (e.target as HTMLFormElement).reset();
-
-      setTimeout(() => {
-        setIsSuccess(false);
-      }, 5000);
-    } catch (err: unknown) {
-      const e = err as { status?: number; text?: string };
-      console.error("EmailJS Error:", e);
-      console.log("Status:", e?.status);
-      console.log("Text:", e?.text);
-
-      if (e?.status === 412) {
-        setError(
-          e?.text ||
-            "EmailJS configuration error. Check Service ID, Template ID and Public Key.",
+      try {
+        await emailjsRef.current.sendForm(
+          import.meta.env.VITE_EMAILJS_SERVICE_ID,
+          import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+          e.currentTarget,
+          import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
         );
-      } else {
-        setError(e?.text || "Failed to send message. Please try again later.");
+
+        setIsSuccess(true);
+        (e.target as HTMLFormElement).reset();
+        setTimeout(() => setIsSuccess(false), 5000);
+      } catch (err: unknown) {
+        const ee = err as { status?: number; text?: string };
+        setError(ee?.text || "Failed to send message. Please try again later.");
+      } finally {
+        setIsSubmitting(false);
       }
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
+    },
+    [],
+  );
 
   return (
     <section id="contact" className="py-20">
-      <motion.div
+      <m.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
@@ -97,7 +94,7 @@ export function Contact() {
 
         <Card>
           <CardContent className="pt-8">
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2">
                   <Label htmlFor="name">Name</Label>
@@ -180,7 +177,7 @@ export function Contact() {
             </form>
           </CardContent>
         </Card>
-      </motion.div>
+      </m.div>
     </section>
   );
 }

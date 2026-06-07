@@ -1,4 +1,4 @@
-import { motion, AnimatePresence } from "framer-motion";
+import { m, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 
@@ -15,7 +15,7 @@ export function Navbar() {
   ];
 
   return (
-    <motion.div
+    <m.div
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.8, type: "spring", bounce: 0.4 }}
@@ -27,13 +27,13 @@ export function Navbar() {
           className="flex-shrink-0 font-syne font-bold text-lg md:text-xl tracking-tighter md:mr-4 group flex items-center"
         >
           UMER
-          <motion.span
+          <m.span
             animate={{ opacity: [1, 0.2, 1], scale: [1, 1.2, 1] }}
             transition={{ duration: 2, repeat: Infinity }}
             className="text-primary ml-[1px]"
           >
             .
-          </motion.span>
+          </m.span>
         </a>
 
         {/* Desktop Navigation */}
@@ -47,7 +47,7 @@ export function Navbar() {
               className="relative px-4 py-2 text-sm font-medium transition-colors text-foreground/80 hover:text-primary z-10 font-syne"
             >
               {hoveredIndex === index && (
-                <motion.div
+                <m.div
                   layoutId="nav-hover-pill"
                   className="absolute inset-0 bg-primary/10 rounded-full -z-10 border border-primary/20"
                   initial={{ opacity: 0 }}
@@ -68,15 +68,15 @@ export function Navbar() {
           rel="noopener noreferrer"
           className="hidden md:block ml-4"
         >
-          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+          <m.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
             <span className="bg-primary/90 hover:bg-primary text-primary-foreground px-5 py-2.5 rounded-full text-sm font-bold shadow-lg shadow-primary/30 transition-colors font-syne">
               Hire Me
             </span>
-          </motion.div>
+          </m.div>
         </a>
 
         {/* Mobile Menu Button */}
-        <motion.button
+        <m.button
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.95 }}
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -84,13 +84,13 @@ export function Navbar() {
           aria-label="Toggle menu"
         >
           {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
-        </motion.button>
+        </m.button>
       </nav>
 
       {/* Mobile Navigation Menu */}
       <AnimatePresence>
         {isMobileMenuOpen && (
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
@@ -99,7 +99,7 @@ export function Navbar() {
           >
             <div className="flex flex-col">
               {navItems.map((item, index) => (
-                <motion.a
+                <m.a
                   key={item.label}
                   href={item.href}
                   onClick={() => setIsMobileMenuOpen(false)}
@@ -109,9 +109,9 @@ export function Navbar() {
                   className="px-6 py-3 text-sm font-medium font-syne text-foreground/80 hover:text-primary hover:bg-primary/5 transition-all border-b border-border/50 last:border-b-0"
                 >
                   {item.label}
-                </motion.a>
+                </m.a>
               ))}
-              <motion.a
+              <m.a
                 href="https://www.linkedin.com/in/umer-the-dev/"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -121,11 +121,11 @@ export function Navbar() {
                 className="px-6 py-4 text-sm font-bold font-syne text-primary-foreground bg-primary hover:bg-primary/90 transition-colors m-3 rounded-lg text-center"
               >
                 Hire Me
-              </motion.a>
+              </m.a>
             </div>
-          </motion.div>
+          </m.div>
         )}
       </AnimatePresence>
-    </motion.div>
+    </m.div>
   );
 }

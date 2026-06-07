@@ -1,4 +1,4 @@
-import { motion, useTransform, type MotionValue } from "framer-motion";
+import { m, useTransform, type MotionValue } from "framer-motion";
 
 interface AmbientGlowProps {
   mouseX: MotionValue<number>;
@@ -10,7 +10,7 @@ export function AmbientGlow({ mouseX, mouseY }: AmbientGlowProps) {
   const glowY = useTransform(mouseY, [-1, 1], [-30, 30]);
 
   return (
-    <motion.div
+    <m.div
       className="pointer-events-none absolute inset-0 z-0"
       style={{ x: glowX, y: glowY }}
     >
@@ -40,6 +40,6 @@ export function AmbientGlow({ mouseX, mouseY }: AmbientGlowProps) {
           filter: "blur(40px)",
         }}
       />
-    </motion.div>
+    </m.div>
   );
 }

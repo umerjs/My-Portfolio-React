@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { ArrowRight, Sparkles, Download, MessageSquare } from "lucide-react";
 import { Button } from "../ui/button";
 import HangingCard from "@/components/hero-card/HangingCard";
@@ -9,13 +9,13 @@ export function Hero() {
       id="home"
       className="min-h-[85vh] bottom-0 flex flex-col md:flex-row items-center justify-between pt-12 md:pt-20 relative gap-8 md:gap-12"
     >
-      <motion.div
+      <m.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1 }}
         className="max-w-3xl relative z-10 flex-1"
       >
-        <motion.div
+        <m.div
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
@@ -23,7 +23,7 @@ export function Hero() {
         >
           <Sparkles className="w-4 h-4" />
           <span>Available for Work</span>
-        </motion.div>
+        </m.div>
 
         <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter mb-6 leading-[1.1]">
           <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
@@ -31,7 +31,7 @@ export function Hero() {
           </span>
         </h1>
 
-        <motion.p
+        <m.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.5 }}
@@ -39,15 +39,15 @@ export function Hero() {
         >
           A passionate full-stack engineer crafting beautiful, responsive web
           experiences from <span className="text-foreground">Karachi</span>.
-        </motion.p>
+        </m.p>
 
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.7 }}
           className="flex flex-wrap gap-4 mb-10"
         >
-          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+          <m.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
             <a
               href="https://www.linkedin.com/in/umer-the-dev/"
               target="_blank"
@@ -60,8 +60,8 @@ export function Hero() {
                 Let's Collaborate <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             </a>
-          </motion.div>
-          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+          </m.div>
+          <m.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
             <a href="/Umer_Memon_Resume.pdf" download="Umer_Memon_Resume.pdf">
               <Button
                 variant="outline"
@@ -71,10 +71,10 @@ export function Hero() {
                 <Download className="mr-2 h-5 w-5" /> Resume
               </Button>
             </a>
-          </motion.div>
-        </motion.div>
+          </m.div>
+        </m.div>
 
-        <motion.div
+        <m.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.9 }}
@@ -133,8 +133,8 @@ export function Hero() {
           >
             <MessageSquare className="w-6 h-6" />
           </a>
-        </motion.div>
-      </motion.div>
+        </m.div>
+      </m.div>
 
       <HangingCard className="self-start md:ml-0 md:-mt-44 md:-ml-4 lg:-ml-8 max-w-full" />
     </section>
