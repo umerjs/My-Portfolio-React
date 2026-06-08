@@ -466,7 +466,7 @@ export default function Portfolio() {
 
   if (isMobile) {
     return (
-      <section id="portfolio" className="py-24 px-6">
+      <section id="work" className="py-24 px-6">
         <div className="mb-16">
           <p className="text-xs font-mono tracking-[0.4em] uppercase text-muted-foreground mb-4">
             // Selected Work
@@ -581,7 +581,7 @@ export default function Portfolio() {
   return (
     <section
       ref={sectionRef}
-      id="portfolio"
+      id="work"
       className="relative h-screen w-screen overflow-hidden"
       style={{ marginLeft: "calc(-50vw + 50%)" }}
     >
