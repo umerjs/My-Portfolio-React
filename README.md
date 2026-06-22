@@ -1,4 +1,4 @@
-# Umer Memon - Web Developer Portfolio
+# Muhammad Umer - Web Developer Portfolio
 
 Personal portfolio built with **React 19**, **TypeScript**, **Vite**, **Tailwind CSS v4**, **Framer Motion**, and **GSAP**. Features code-split chunks, lazy-loaded sections, and brotli/gzip compression for maximum load speed.
 
@@ -161,7 +161,7 @@ Let's connect! Feel free to reach out for collaborations or web development proj
 - **Email**: [umery101@gmail.com](mailto:umery101@gmail.com)
 - **WhatsApp**: [+92-316-139-5147](https://wa.me/923161395147)
 - **LinkedIn**: [Umer-The-Dev](https://www.linkedin.com/in/umer-the-dev/)
-- **GitHub**: [@umermemon1](https://github.com/umermemon1)
+- **GitHub**: [@umerjs](https://github.com/umerjs)
 
 ---
 
@@ -187,7 +187,7 @@ This project is released under the **MIT License**, but with important additiona
 
 MIT License
 
-Copyright (c) 2024 Umer Memon
+Copyright (c) 2024 Muhammad Umer
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -27,7 +27,7 @@ export const ROPE_WIDTH = 14;
 
 export const DEFAULT_PROFILE: CardProfile = {
   avatarUrl: "https://avatars.githubusercontent.com/u/178928829?v=4",
-  name: "Umer Memon",
+  name: "Muhammad Umer",
   title: "Full Stack Developer",
   stackBadges: [
     "HTML",
@@ -35,11 +35,11 @@ export const DEFAULT_PROFILE: CardProfile = {
     "JavaScript",
     "Tailwind",
     "React",
-    "Next.js",
     "TypeScript",
     "Node.js",
     "Express",
-    "MongoDB ",
+    "MongoDB",
+    "REST APIs",
   ],
   idCode: "488103",
   year: "2026",

@@ -1,6 +1,5 @@
 import { m } from "framer-motion";
 import { ArrowRight, Sparkles, Download, MessageSquare } from "lucide-react";
-import { Button } from "../ui/button";
 import HangingCard from "@/components/hero-card/HangingCard";
 
 export function Hero() {
@@ -25,9 +24,9 @@ export function Hero() {
           <span>Available for Work</span>
         </m.div>
 
-        <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter mb-6 leading-[1.1]">
+        <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tighter mb-6 leading-[1.1]">
           <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-            Umer Memon
+            M. Umer
           </span>
         </h1>
 
@@ -52,24 +51,18 @@ export function Hero() {
               href="https://www.linkedin.com/in/umer-the-dev/"
               target="_blank"
               rel="noreferrer"
+              className="inline-flex items-center justify-center rounded-full px-8 h-14 text-base font-medium bg-primary text-primary-foreground shadow-[0_0_40px_-10px_rgba(var(--primary),0.5)] hover:bg-primary/90 transition-all"
             >
-              <Button
-                size="lg"
-                className="rounded-full px-8 h-14 text-base shadow-[0_0_40px_-10px_rgba(var(--primary),0.5)]"
-              >
-                Let's Collaborate <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
+              Let's Collaborate <ArrowRight className="ml-2 h-5 w-5" />
             </a>
           </m.div>
           <m.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-            <a href="/Umer_Memon_Resume.pdf" download="Umer_Memon_Resume.pdf">
-              <Button
-                variant="outline"
-                size="lg"
-                className="rounded-full px-8 h-14 text-base bg-transparent border-border/50 hover:bg-white/5 hover:border-primary/50 transition-all"
-              >
-                <Download className="mr-2 h-5 w-5" /> Resume
-              </Button>
+            <a
+              href="/Umer_Memon_Resume.pdf"
+              download="Umer_Memon_Resume.pdf"
+              className="inline-flex items-center justify-center rounded-full px-8 h-14 text-base font-medium bg-transparent border border-border/50 hover:bg-white/5 hover:border-primary/50 transition-all text-foreground"
+            >
+              <Download className="mr-2 h-5 w-5" /> Resume
             </a>
           </m.div>
         </m.div>
@@ -81,7 +74,7 @@ export function Hero() {
           className="flex items-center gap-4"
         >
           <a
-            href="https://github.com/umermemon1"
+            href="https://github.com/umerjs"
             target="_blank"
             rel="noreferrer"
             className="p-4 bg-background/50 border border-border/50 rounded-full hover:bg-primary hover:text-primary-foreground hover:scale-110 transition-all shadow-lg hover:shadow-primary/20"

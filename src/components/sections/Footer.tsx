@@ -30,9 +30,11 @@ export function Footer() {
               </a>
             </div>
             <p className="text-muted-foreground leading-relaxed">
-              Passionate full-stack engineer based in Karachi, Pakistan. I craft
-              beautiful, responsive web experiences with modern technologies.
-              Always open to exciting projects and collaborations.
+              <strong>MERN Stack Developer</strong> and{" "}
+              <strong>Full Stack Engineer</strong> based in Karachi, Pakistan. I
+              craft beautiful, responsive web experiences with React,
+              TypeScript, Node.js, and modern technologies. Always open to
+              exciting projects and collaborations.
             </p>
             <div className="flex items-center gap-2 text-muted-foreground">
               <MapPin className="w-4 h-4 text-primary" />
@@ -57,13 +59,13 @@ export function Footer() {
                 About Me
               </a>
               <a
-                href="#tech"
+                href="#stack"
                 className="text-muted-foreground hover:text-primary transition-colors"
               >
                 Tech Stack
               </a>
               <a
-                href="#portfolio"
+                href="#work"
                 className="text-muted-foreground hover:text-primary transition-colors"
               >
                 Portfolio
@@ -113,7 +115,7 @@ export function Footer() {
 
             <div className="flex gap-4 pt-4">
               <m.a
-                href="https://github.com/umermemon1"
+                href="https://github.com/umerjs"
                 target="_blank"
                 rel="noreferrer"
                 whileHover={{ scale: 1.1 }}
@@ -182,10 +184,10 @@ export function Footer() {
           className="border-t border-border/50 pt-8 flex flex-col md:flex-row justify-between items-center gap-4"
         >
           <p className="text-sm text-muted-foreground">
-            © 2024 Umer Memon. All rights reserved.
+            © 2026 Muhammad Umer. All rights reserved.
           </p>
           <p className="text-sm text-muted-foreground flex items-center gap-1">
-            Crafted By Umer Memon With
+            Crafted By Muhammad Umer With
             <Heart className="w-4 h-4 m-2 text-red-500 fill-red-500" /> Using
             ReactJs and TailwindCss
           </p>

@@ -39,8 +39,7 @@ const techStack = [
       "Firebase",
       "FireStore",
     ],
-    color:
-      "group-hover:border-red-500/50 group-hover:shadow-red-500/20",
+    color: "group-hover:border-red-500/50 group-hover:shadow-red-500/20",
   },
   {
     category: "Tools",
@@ -67,7 +66,7 @@ export function TechStack() {
         className="mb-16"
       >
         <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-4 flex items-center gap-4">
-          Tech Arsenal
+          Skills & Tech Stack
           <m.span
             animate={{ rotate: 360 }}
             transition={{ duration: 10, repeat: Infinity, ease: "linear" }}

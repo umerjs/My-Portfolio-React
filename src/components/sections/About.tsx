@@ -3,7 +3,7 @@ import { useCounter } from "@/hooks/useCounter";
 import { useEffect, useRef, memo } from "react";
 import { Globe, Server, Database, Rocket } from "lucide-react";
 const counters = [
-  { end: 2, suffix: "+", label: "Years Experience" },
+  { end: 3, suffix: "+", label: "Years Experience" },
   { end: 50, suffix: "+", label: "Projects Built" },
   { end: 9, suffix: "+", label: "Happy Clients" },
   { end: 16, suffix: "+", label: "GitHub Stars" },
@@ -108,7 +108,7 @@ export function About() {
             viewport={{ once: true }}
             className="mb-2 inline-block text-sm font-medium text-primary"
           >
-            🙋 About Me
+            About Me
           </m.span>
           <h2 className="mb-4 font-syne text-4xl md:text-5xl font-bold text-foreground">
             About Me
@@ -135,7 +135,7 @@ export function About() {
               <div className="relative h-64 w-64 overflow-hidden rounded-2xl border-2 border-primary/30 bg-gradient-to-br from-primary/20 to-accent/10">
                 <img
                   src="https://avatars.githubusercontent.com/u/178928829?v=4"
-                  alt="Profile Image"
+                  alt="Muhammad Umer — MERN Stack Developer portrait"
                   className="flex h-full w-full items-center justify-center font-syne text-6xl font-bold bg-gradient-to-br from-primary to-accent bg-clip-text text-transparent"
                 ></img>
               </div>
@@ -149,15 +149,15 @@ export function About() {
             className="space-y-4"
           >
             <p className="text-base leading-relaxed text-muted-foreground">
-              I'm a Full Stack MERN Developer with 3+ years of experience
-              building scalable web applications. I specialize in React.js,
-              Node.js, Express.js, and MongoDB — turning ideas into
-              production-ready digital products.
+              I'm a <strong>MERN Stack Developer</strong> and <strong>Full Stack Developer</strong> with 3+ years of experience
+              building scalable web applications. I specialize in <strong>React</strong>, <strong>TypeScript</strong>,
+              <strong>Node.js</strong>, <strong>Express.js</strong>, and <strong>MongoDB</strong> — turning ideas into
+              production-ready digital products as a freelance web developer and software engineer.
             </p>
             <p className="text-base leading-relaxed text-muted-foreground">
-              I'm passionate about clean code, elegant architectures, and
-              creating seamless user experiences. When I'm not coding, you'll
-              find me exploring new technologies, contributing to open source,
+              As a dedicated <strong>React Frontend Developer</strong> and <strong>Backend Developer</strong>, I'm passionate
+              about clean code, elegant architectures, and creating seamless user experiences across the full stack.
+              When I'm not coding, you'll find me exploring new technologies, contributing to open source,
               or writing technical articles.
             </p>
             <m.div

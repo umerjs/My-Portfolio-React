@@ -2,25 +2,25 @@ import { m } from "framer-motion";
 
 const experiences = [
   {
-    role: "Senior Full Stack Engineer",
+    role: "Senior Full Stack Engineer (MERN)",
     company: "Tech Innovators Inc.",
     period: "2023 - Present",
     description:
-      "Leading the development of high-traffic web applications using the MERN stack. Mentoring junior developers and architecting scalable backend microservices.",
+      "Leading development of high-traffic MERN stack web applications — React, Node.js, Express, and MongoDB. Architecting scalable microservices, mentoring junior developers, and driving CI/CD best practices.",
   },
   {
-    role: "Full Stack Developer",
+    role: "Full Stack Developer (React & Node.js)",
     company: "Digital Solutions LLC",
     period: "2020 - 2023",
     description:
-      "Built and maintained multiple client projects. Improved database query performance by 40% and implemented robust CI/CD pipelines.",
+      "Built and maintained full-stack React and Node.js client projects. Optimized MongoDB query performance by 40% and implemented robust CI/CD pipelines with automated testing.",
   },
   {
-    role: "Frontend Developer",
+    role: "React Frontend Developer",
     company: "Creative Agency",
     period: "2018 - 2020",
     description:
-      "Focused on creating responsive, pixel-perfect user interfaces with React and modern CSS frameworks.",
+      "Developed responsive, pixel-perfect React user interfaces with TypeScript and Tailwind CSS. Collaborated on design systems and component libraries.",
   },
 ];
 

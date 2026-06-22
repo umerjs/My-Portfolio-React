@@ -159,7 +159,7 @@ export function CardFace({ profile = DEFAULT_PROFILE }: CardFaceProps) {
           >
             <img
               src={linkedinQr}
-              alt="LinkedIn QR"
+              alt="Muhammad Umer LinkedIn profile QR code — connect on LinkedIn"
               width={QR_SIZE}
               height={QR_SIZE}
               style={{

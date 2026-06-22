@@ -199,9 +199,11 @@ function ProjectPreview({ project }: { project: Project }) {
       >
         <img
           src={project.image}
-          alt={project.title}
+          alt={`${project.title} — ${project.subtitle}`}
           className="w-full h-full object-contain"
           loading="lazy"
+          width="600"
+          height="400"
         />
       </div>
       <div
@@ -251,11 +253,42 @@ function ProjectLightbox({
   project: Project;
   onClose: () => void;
 }) {
+  const lightboxRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const el = lightboxRef.current;
+    if (!el) return;
+    const focusable = el.querySelectorAll<HTMLElement>(
+      'a[href], button, textarea, input, select, [tabindex]:not([tabindex="-1"])',
+    );
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+    first?.focus();
+
+    const handleTab = (e: KeyboardEvent) => {
+      if (e.key === "Tab") {
+        if (e.shiftKey && document.activeElement === first) {
+          e.preventDefault();
+          last?.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault();
+          first?.focus();
+        }
+      }
+    };
+    el.addEventListener("keydown", handleTab);
+    return () => el.removeEventListener("keydown", handleTab);
+  }, []);
+
   return (
     <div
+      ref={lightboxRef}
       className="fixed inset-0 z-[9999] flex items-center justify-center p-6 md:p-12"
       style={{ background: "rgba(0,0,0,0.92)", backdropFilter: "blur(12px)" }}
       onClick={onClose}
+      role="dialog"
+      aria-modal="true"
+      aria-label={`Project preview: ${project.title}`}
     >
       <button
         onClick={onClose}
@@ -265,6 +298,7 @@ function ProjectLightbox({
           border: `1px solid ${project.color}66`,
           color: project.color,
         }}
+        aria-label="Close project preview"
       >
         <svg
           width="16"
@@ -352,8 +386,10 @@ function ProjectLightbox({
         >
           <img
             src={project.image}
-            alt={project.title}
+            alt={`${project.title} — ${project.subtitle} — full preview`}
             className="w-full object-contain object-top"
+            width="1200"
+            height="800"
           />
         </div>
       </div>
@@ -438,7 +474,7 @@ export default function Portfolio() {
 
       if (cancelled) {
         ctx.revert();
-        ScrollTrigger.getAll().forEach((t: any) => t.kill());
+        ScrollTrigger.getAll().forEach((t) => t.kill());
         return;
       }
 
@@ -492,9 +528,11 @@ export default function Portfolio() {
                 </div>
                 <img
                   src={project.image}
-                  alt={project.title}
+                  alt={`${project.title} — ${project.subtitle}`}
                   className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700"
                   loading="lazy"
+                  width="800"
+                  height="500"
                 />
                 <div
                   className="absolute inset-0"

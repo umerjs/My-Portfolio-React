@@ -43,11 +43,14 @@ export function CustomCursor() {
   }, []);
 
   useEffect(() => {
-    document.body.style.cursor = "none";
-    const elements = document.querySelectorAll("a, button");
-    elements.forEach((el) => {
-      (el as HTMLElement).style.cursor = "none";
-    });
+    const style = document.createElement("style");
+    style.id = "custom-cursor-hide";
+    style.textContent = "html { cursor: none !important; }";
+    document.head.appendChild(style);
+    return () => {
+      const el = document.getElementById("custom-cursor-hide");
+      if (el) el.remove();
+    };
   }, []);
 
   if (isMobile) return null;
