@@ -8,7 +8,7 @@ Personal portfolio built with **React 19**, **TypeScript**, **Vite**, **Tailwind
 
 ## Live Preview
 
-👉 [Visit Live Site](https://umer-memon.vercel.app/)
+👉 [Visit Live Site](https://umerjs.vercel.app/)
 
 ---
 
