@@ -1,4 +1,4 @@
-const SITE_URL = "https://umer-memon.vercel.app";
+const SITE_URL = "https://umer-js.vercel.app";
 
 const personSchema = {
   "@context": "https://schema.org",

@@ -1,6 +1,6 @@
 import { Helmet } from "react-helmet-async";
 
-const SITE_URL = "https://umer-memon.vercel.app";
+const SITE_URL = "https://umer-js.vercel.app";
 const DEFAULT_TITLE =
   "Muhammad Umer | MERN Stack Developer & Full Stack Engineer";
 const DEFAULT_DESC =
