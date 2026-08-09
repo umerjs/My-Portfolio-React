@@ -96,11 +96,11 @@ export function Footer() {
             <h3 className="text-xl font-bold mb-4">Get In Touch</h3>
             <div className="space-y-3">
               <a
-                href="mailto:umery101@gmail.com"
+                href="mailto:codebyumer.dev@gmail.com"
                 className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors"
               >
                 <Mail className="w-5 h-5" />
-                <span>umery101@gmail.com</span>
+                <span>codebyumer.dev@gmail.com</span>
               </a>
               <a
                 href="https://wa.me/923161395147"

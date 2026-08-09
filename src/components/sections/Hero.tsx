@@ -1,6 +1,7 @@
 import { m } from "framer-motion";
 import { ArrowRight, Download, MessageSquare } from "lucide-react";
 import HangingCard from "@/components/hero-card/HangingCard";
+import { LiquidHeading } from '@/components/ui/LiquidHeading';
 
 const container = {
   hidden: {},
@@ -28,7 +29,7 @@ export function Hero() {
         variants={container}
         initial="hidden"
         animate="visible"
-        className="max-w-3xl relative z-10 flex-1"
+        className="max-w-xl lg:max-w-2xl xl:max-w-3xl relative z-10 flex-1"
       >
         {/* Status line */}
         <m.div variants={item} className="flex items-center gap-2 mb-6">
@@ -46,8 +47,10 @@ export function Hero() {
           variants={item}
           className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tighter mb-3 leading-[1.05]"
         >
-          <span className="text-foreground">Muhammad </span>
-          <span className="text-primary">Umer</span>
+          <LiquidHeading as="span" className="inline">
+            <span className="text-foreground">Muhammad </span>
+            <span className="text-primary">Umer</span>
+          </LiquidHeading>
         </m.h1>
 
         {/* Role line */}

@@ -2,6 +2,7 @@ import { m } from "framer-motion";
 import { useCounter } from "@/hooks/useCounter";
 import { useEffect, useRef, memo } from "react";
 import { Globe, Server, Database, Rocket } from "lucide-react";
+import { LiquidHeading } from '@/components/ui/LiquidHeading';
 const counters = [
   { end: 3, suffix: "+", label: "Years Experience" },
   { end: 50, suffix: "+", label: "Projects Built" },
@@ -111,7 +112,7 @@ export function About() {
             About Me
           </m.span>
           <h2 className="mb-4 font-syne text-4xl md:text-5xl font-bold text-foreground">
-            About Me
+            <LiquidHeading as="span">About Me</LiquidHeading>
           </h2>
         </m.div>
 

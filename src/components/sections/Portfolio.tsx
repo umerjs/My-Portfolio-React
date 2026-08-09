@@ -1,5 +1,4 @@
-import { useEffect, useRef, useState, useCallback } from "react";
-import { ArrowUpRight } from "lucide-react";
+import React, { useEffect, useRef, useState, useCallback } from "react";
 import dilsebuyImg from "@/assets/dilsebuy.webp";
 import calculatorImg from "@/assets/calculator.webp";
 import quizzappImg from "@/assets/quizzapp.webp";
@@ -123,6 +122,18 @@ function ProjectBlock({ project }: { project: Project }) {
         >
           {project.subtitle}
         </p>
+        {project.id === "01" && (
+          <span 
+            className="ml-2 px-2 py-0.5 text-[9px] font-semibold uppercase tracking-widest rounded-full"
+            style={{
+              background: `${project.color}22`,
+              border: `1px solid ${project.color}44`,
+              color: project.color,
+            }}
+          >
+            Featured
+          </span>
+        )}
       </div>
       <p className="max-w-sm text-sm text-muted-foreground leading-relaxed mb-8">
         {project.description}
@@ -146,23 +157,24 @@ function ProjectBlock({ project }: { project: Project }) {
         href={project.link}
         target="_blank"
         rel="noreferrer"
-        className="group/cta inline-flex items-center gap-3 w-fit"
+        className="group/cta inline-flex items-center gap-2 px-5 py-2.5 rounded-full border font-mono text-xs uppercase tracking-widest transition-all duration-300 hover:scale-105 w-fit"
+        style={{
+          borderColor: `${project.color}66`,
+          color: project.color,
+          backgroundColor: `${project.color}11`,
+        }}
       >
-        <span
-          className="w-8 h-px transition-all duration-500 group-hover/cta:w-14"
-          style={{ backgroundColor: project.color }}
-        />
-        <span
-          className="text-xs font-mono tracking-[0.3em] uppercase transition-colors duration-300"
-          style={{ color: project.color }}
+        <svg
+          width="14"
+          height="14"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
         >
-          View Project
-        </span>
-        <ArrowUpRight
-          size={14}
-          className="transition-transform duration-300 group-hover/cta:translate-x-1 group-hover/cta:-translate-y-1"
-          style={{ color: project.color }}
-        />
+          <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3" />
+        </svg>
+        View Project
       </a>
     </div>
   );
@@ -220,9 +232,9 @@ function ProjectPreview({ project }: { project: Project }) {
           {project.subtitle}
         </p>
       </div>
-      <div className="absolute inset-0 z-20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/30 cursor-pointer">
+      <div className="absolute inset-0 z-20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 bg-black/40 backdrop-blur-md cursor-pointer">
         <div
-          className="flex items-center gap-2 px-4 py-2 rounded-full text-sm font-mono uppercase tracking-widest backdrop-blur-sm"
+          className="flex items-center gap-2 px-4 py-2 rounded-full text-sm font-mono uppercase tracking-widest backdrop-blur-sm transition-transform duration-300 scale-95 group-hover:scale-105"
           style={{
             background: `${project.color}22`,
             border: `1px solid ${project.color}66`,
@@ -631,21 +643,26 @@ export default function Portfolio() {
         }}
       />
 
-      <div className="absolute top-8 left-10 z-30 flex items-center gap-3">
-        <span className="text-xs font-mono tracking-[0.4em] uppercase text-muted-foreground">
-          // Selected Work
-        </span>
-        <span
-          className="text-xs font-mono px-2 py-0.5 rounded-full border transition-all duration-500"
-          style={{
-            borderColor: `${projects[activeIndex].color}66`,
-            color: projects[activeIndex].color,
-            background: `${projects[activeIndex].color}11`,
-          }}
-        >
-          {String(activeIndex + 1).padStart(2, "0")} /{" "}
-          {String(projects.length).padStart(2, "0")}
-        </span>
+      <div className="absolute top-8 left-10 z-30">
+        <div className="flex items-center gap-3 mb-2">
+          <span className="text-xs font-mono tracking-[0.4em] uppercase text-muted-foreground">
+            // Selected Work
+          </span>
+          <span
+            className="text-xs font-mono px-2 py-0.5 rounded-full border transition-all duration-500"
+            style={{
+              borderColor: `${projects[activeIndex].color}66`,
+              color: projects[activeIndex].color,
+              background: `${projects[activeIndex].color}11`,
+            }}
+          >
+            {String(activeIndex + 1).padStart(2, "0")} /{" "}
+            {String(projects.length).padStart(2, "0")}
+          </span>
+        </div>
+        <h2 className="text-5xl font-black uppercase leading-none">
+          MY <span className="text-primary">PROJECTS</span>
+        </h2>
       </div>
 
       <div className="absolute left-0 top-0 h-full w-1/2 overflow-hidden">
@@ -659,7 +676,7 @@ export default function Portfolio() {
       <div className="absolute left-1/2 top-0 h-full w-px bg-white/[0.06]" />
 
       <div className="absolute right-0 top-0 flex h-full w-1/2 items-center justify-center px-6 py-8">
-        <div className="relative h-[78vh] w-full">
+        <div className="relative h-[82vh] w-full">
           {projects.map((project, i) => (
             <div
               key={project.id}
@@ -681,20 +698,41 @@ export default function Portfolio() {
         </div>
       </div>
 
-      <div className="absolute right-5 top-1/2 z-30 flex -translate-y-1/2 flex-col gap-3">
+      <div className="absolute right-5 top-1/2 z-30 flex -translate-y-1/2 flex-col items-center gap-0">
         {projects.map((project, i) => (
-          <div
-            key={project.id}
-            className="rounded-full transition-all duration-500 ease-out"
-            style={{
-              width: activeIndex === i ? "10px" : "5px",
-              height: activeIndex === i ? "10px" : "5px",
-              background:
-                activeIndex === i ? project.color : `${project.color}44`,
-              boxShadow:
-                activeIndex === i ? `0 0 10px ${project.color}88` : "none",
-            }}
-          />
+          <React.Fragment key={project.id}>
+            <div className="relative flex items-center justify-center w-3 h-3">
+              {activeIndex === i && (
+                <span 
+                  className="absolute right-5 text-[10px] font-mono" 
+                  style={{ color: project.color }}
+                >
+                  {project.id}
+                </span>
+              )}
+              <div
+                className="rounded-full transition-all duration-500 ease-out"
+                style={{
+                  width: activeIndex === i ? "12px" : "5px",
+                  height: activeIndex === i ? "12px" : "5px",
+                  background:
+                    activeIndex === i ? project.color : `${project.color}44`,
+                  boxShadow:
+                    activeIndex === i ? `0 0 10px ${project.color}88` : "none",
+                }}
+              />
+            </div>
+            {i < projects.length - 1 && (
+              <div 
+                className="w-px h-4 transition-all duration-500 my-1" 
+                style={{
+                  background: activeIndex === i || activeIndex === i + 1
+                    ? `${projects[Math.min(activeIndex, projects.length-1)].color}44`
+                    : 'rgba(255,255,255,0.06)'
+                }} 
+              />
+            )}
+          </React.Fragment>
         ))}
       </div>
 

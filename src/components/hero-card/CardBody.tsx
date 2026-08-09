@@ -30,16 +30,16 @@ export function CardBody({ tiltX, tiltY }: CardBodyProps) {
       }}
     >
       <m.div
-        className="absolute inset-0 rounded-[22px] overflow-hidden"
+        className="absolute inset-0 rounded-[22px]"
         style={{
-          filter: "blur(1px)",
           boxShadow: useTransform(
             [shadowX, shadowY, shadowBlur],
             ([sx, sy, sb]) =>
               [
-                `${sx}px ${sy}px ${sb}px rgba(0,0,0,0.5)`,
-                "0 0 100px rgba(0,0,0,0.2)",
-                "0 0 60px rgba(201,169,106,0.06)",
+                `${sx}px ${sy}px ${sb}px rgba(0,0,0,0.65)`,
+                "0 30px 90px rgba(0,0,0,0.6)",
+                "0 0 120px rgba(0,0,0,0.3)",
+                "0 0 70px rgba(201,169,106,0.08)",
               ].join(", "),
           ),
         }}

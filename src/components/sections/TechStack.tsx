@@ -1,6 +1,7 @@
 import { m } from "framer-motion";
 import { Card, CardContent } from "../ui/card";
 import { useState, memo } from "react";
+import { LiquidHeading } from '@/components/ui/LiquidHeading';
 
 const techStack = [
   {
@@ -66,7 +67,7 @@ export function TechStack() {
         className="mb-16"
       >
         <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-4 flex items-center gap-4">
-          Skills & Tech Stack
+          <LiquidHeading as="span">Skills & Tech Stack</LiquidHeading>
           <m.span
             animate={{ rotate: 360 }}
             transition={{ duration: 10, repeat: Infinity, ease: "linear" }}

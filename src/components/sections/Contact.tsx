@@ -6,6 +6,7 @@ import { Textarea } from "../ui/textarea";
 import { Button } from "../ui/button";
 import { Label } from "../ui/label";
 import { Send, Loader2, CheckCircle2, AlertCircle } from "lucide-react";
+import { LiquidHeading } from '@/components/ui/LiquidHeading';
 
 type EmailJSSdk = typeof import("@emailjs/browser");
 
@@ -84,7 +85,7 @@ export function Contact() {
           <span className="text-sm font-medium text-primary">GET IN TOUCH</span>
 
           <h2 className="mt-3 text-4xl md:text-5xl font-bold">
-            Let's Work Together
+            <LiquidHeading as="span">Let's Work Together</LiquidHeading>
           </h2>
 
           <p className="mt-4 text-lg text-muted-foreground">

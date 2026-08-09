@@ -1,4 +1,5 @@
 import { m } from "framer-motion";
+import { LiquidHeading } from '@/components/ui/LiquidHeading';
 
 const experiences = [
   {
@@ -29,7 +30,7 @@ export function Experience() {
     <section id="experience" className="py-20 relative">
       <div className="mb-16">
         <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
-          Experience
+          <LiquidHeading as="span">Experience</LiquidHeading>
         </h2>
         <p className="text-muted-foreground max-w-2xl text-lg">
           My professional journey in software engineering.

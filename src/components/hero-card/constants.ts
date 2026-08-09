@@ -14,8 +14,8 @@ export const ROPE_SPRING = {
 
 export const MAX_TILT_DEG = 12;
 export const ENTRANCE_DURATION = 1.4;
-export const IDLE_SWAY_DURATION = 6;
-export const IDLE_SWAY_AMPLITUDE = 1.5;
+export const IDLE_SWAY_DURATION = 7;
+export const IDLE_SWAY_AMPLITUDE = 2.2;
 export const PERSPECTIVE_PX = 1200;
 
 export const CARD_WIDTH = 340;

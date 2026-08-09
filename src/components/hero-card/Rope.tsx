@@ -62,7 +62,7 @@ export function Rope({ ropeSway }: RopeProps) {
       <m.div
         className="relative overflow-hidden"
         style={{
-          width: 18,
+          width: 22,
           height: ROPE_HEIGHT,
           skewX: ropeSkew,
           transformOrigin: "top center",
@@ -73,9 +73,9 @@ export function Rope({ ropeSway }: RopeProps) {
         <div
           className="absolute inset-0"
           style={{
-            borderRadius: 3,
+            borderRadius: 4,
             background:
-              "linear-gradient(90deg, #1a2240 0%, #2a3a6a 20%, #1e2e5a 50%, #2a3a6a 80%, #1a2240 100%)",
+              "linear-gradient(90deg, #10162f 0%, #1e2e5a 25%, #2a3a6a 50%, #1e2e5a 75%, #10162f 100%)",
           }}
         />
 
@@ -83,10 +83,10 @@ export function Rope({ ropeSway }: RopeProps) {
         <div
           className="absolute inset-0"
           style={{
-            borderRadius: 3,
+            borderRadius: 4,
             backgroundImage: [
-              "repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(255,255,255,0.03) 2px, rgba(255,255,255,0.03) 3px)",
-              "repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(255,255,255,0.02) 2px, rgba(255,255,255,0.02) 3px)",
+              "repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(255,255,255,0.06) 2px, rgba(255,255,255,0.06) 3px)",
+              "repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(255,255,255,0.04) 2px, rgba(255,255,255,0.04) 3px)",
             ].join(", "),
           }}
         />
@@ -95,9 +95,9 @@ export function Rope({ ropeSway }: RopeProps) {
         <div
           className="absolute inset-0"
           style={{
-            borderRadius: 3,
+            borderRadius: 4,
             background: [
-              "linear-gradient(90deg, transparent 25%, rgba(201,169,106,0.35) 35%, rgba(201,169,106,0.5) 45%, rgba(201,169,106,0.5) 55%, rgba(201,169,106,0.35) 65%, transparent 75%)",
+              "linear-gradient(90deg, transparent 30%, rgba(201,169,106,0.6) 40%, rgba(245,222,179,0.85) 50%, rgba(201,169,106,0.6) 60%, transparent 70%)",
             ].join(", "),
           }}
         />
@@ -106,24 +106,24 @@ export function Rope({ ropeSway }: RopeProps) {
         <div
           className="absolute inset-0"
           style={{
-            borderRadius: 3,
+            borderRadius: 4,
             backgroundImage: [
-              "repeating-linear-gradient(180deg, rgba(255,255,255,0.15) 0px, rgba(255,255,255,0.15) 2px, transparent 2px, transparent 5px)",
+              "repeating-linear-gradient(180deg, rgba(255,255,255,0.2) 0px, rgba(255,255,255,0.2) 2px, transparent 2px, transparent 5px)",
             ].join(", "),
             backgroundPosition: "left 2px center, right 2px center",
             backgroundRepeat: "no-repeat, no-repeat",
-            backgroundSize: "1.5px 100%, 1.5px 100%",
+            backgroundSize: "2px 100%, 2px 100%",
           }}
         />
 
-        {/* 3D shadow on left edge */}
+        {/* 3D shadow on left edge for rounded/physical look */}
         <div
           className="absolute inset-y-0 left-0"
           style={{
-            width: "30%",
-            borderRadius: "3px 0 0 3px",
+            width: "35%",
+            borderRadius: "4px 0 0 4px",
             background:
-              "linear-gradient(90deg, rgba(0,0,0,0.3) 0%, transparent 100%)",
+              "linear-gradient(90deg, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.15) 50%, transparent 100%)",
           }}
         />
 
@@ -131,38 +131,53 @@ export function Rope({ ropeSway }: RopeProps) {
         <div
           className="absolute inset-y-0 right-0"
           style={{
-            width: "20%",
+            width: "25%",
             background:
-              "linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.06) 100%)",
+              "linear-gradient(270deg, rgba(255,255,255,0.12) 0%, rgba(255,255,255,0.03) 70%, transparent 100%)",
           }}
         />
       </m.div>
 
       {/* Metal clip assembly */}
       <div className="flex flex-col items-center" style={{ marginTop: -1 }}>
+        {/* Connection metal ring between strap and clip */}
+        <div
+          style={{
+            width: 12,
+            height: 10,
+            borderRadius: "50%",
+            border: "2.5px solid #bbb",
+            background: "transparent",
+            boxShadow: "0 1px 3px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.2)",
+            zIndex: 5,
+          }}
+        />
+        
         {/* Upper clip body */}
         <div
           style={{
-            width: 26,
-            height: 8,
-            borderRadius: "2px 2px 0 0",
+            width: 30,
+            height: 9,
+            borderRadius: "3px 3px 0 0",
             background:
-              "linear-gradient(180deg, #c8c8c8 0%, #989898 100%)",
+              "linear-gradient(180deg, #d8d8d8 0%, #b0b0b0 40%, #888888 100%)",
             boxShadow:
-              "inset 0 1px 0 rgba(255,255,255,0.5), inset 0 -1px 0 rgba(0,0,0,0.2)",
+              "inset 0 1.5px 0 rgba(255,255,255,0.6), inset 0 -1px 0 rgba(0,0,0,0.25), 0 2px 4px rgba(0,0,0,0.25)",
+            marginTop: -2,
           }}
         />
         {/* Clip slot */}
         <div
           style={{
-            width: 26,
-            height: 12,
-            borderRadius: "0 0 3px 3px",
+            width: 30,
+            height: 14,
+            borderRadius: "0 0 4px 4px",
             background:
-              "linear-gradient(180deg, #b0b0b0 0%, #888888 50%, #707070 100%)",
+              "linear-gradient(180deg, #c0c0c0 0%, #989898 50%, #787878 100%)",
             boxShadow:
-              "0 3px 6px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.4), inset 0 -1px 0 rgba(0,0,0,0.2)",
+              "0 4px 8px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.5), inset 0 -1.5px 0 rgba(0,0,0,0.3)",
             position: "relative",
+            zIndex: 2,
           }}
         >
           {/* Slot cutout */}
@@ -172,23 +187,25 @@ export function Rope({ ropeSway }: RopeProps) {
               top: "50%",
               left: "50%",
               transform: "translate(-50%,-50%)",
-              width: 10,
-              height: 5,
+              width: 12,
+              height: 6,
               borderRadius: 2,
-              background: "rgba(0,0,0,0.4)",
-              boxShadow: "inset 0 1px 2px rgba(0,0,0,0.3)",
+              background: "rgba(0,0,0,0.5)",
+              boxShadow: "inset 0 1px 2px rgba(0,0,0,0.4)",
             }}
           />
         </div>
-        {/* Lower gripping tab */}
+        {/* Lower gripping tab bridging to the card */}
         <div
           style={{
-            width: 20,
-            height: 5,
-            borderRadius: "0 0 3px 3px",
+            width: 22,
+            height: 7,
+            borderRadius: "0 0 4px 4px",
             background:
-              "linear-gradient(180deg, #989898 0%, #686868 100%)",
-            boxShadow: "0 2px 4px rgba(0,0,0,0.3)",
+              "linear-gradient(180deg, #b0b0b0 0%, #707070 100%)",
+            boxShadow: "0 2px 5px rgba(0,0,0,0.35)",
+            zIndex: 1,
+            marginTop: -1,
           }}
         />
       </div>

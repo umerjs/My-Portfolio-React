@@ -158,7 +158,7 @@ Personal portfolio built with **React 19**, **TypeScript**, **Vite**, **Tailwind
 
 Let's connect! Feel free to reach out for collaborations or web development projects.
 
-- **Email**: [umery101@gmail.com](mailto:umery101@gmail.com)
+- **Email**: [codebyumer.dev@gmail.com](mailto:codebyumer.dev@gmail.com)
 - **WhatsApp**: [+92-316-139-5147](https://wa.me/923161395147)
 - **LinkedIn**: [Umer-The-Dev](https://www.linkedin.com/in/umer-the-dev/)
 - **GitHub**: [@umerjs](https://github.com/umerjs)
@@ -174,7 +174,7 @@ This project is released under the **MIT License**, but with important additiona
 - **Not free to use or redistribute** as your own portfolio or business site
 - **No plagiarism** of design, code, or content without permission
 - **Permission required** for any commercial, educational, or public reuse
-- **Contact me** for licensing, collaboration, or usage inquiries at [umery101@gmail.com](mailto:umery101@gmail.com)
+- **Contact me** for licensing, collaboration, or usage inquiries at [codebyumer.dev@gmail.com](mailto:codebyumer.dev@gmail.com)
 
 ### **What You Can Do**
 

@@ -23,7 +23,7 @@ export function CardFace({ profile = DEFAULT_PROFILE }: CardFaceProps) {
         height: "100%",
         borderRadius: CARD_BORDER_RADIUS,
         background:
-          "linear-gradient(180deg, #1a1a20 0%, #121216 30%, #0a0a0e 100%)",
+          "linear-gradient(180deg, #10162e 0%, #0b0f20 40%, #060811 100%)",
       }}
     >
       {/* background glow — edit the 0.10 opacity and 55% size */}
@@ -106,11 +106,11 @@ export function CardFace({ profile = DEFAULT_PROFILE }: CardFaceProps) {
         />
 
         {/* ═══ ROW 3: Stack Badges ═══ */}
-        <div className="flex flex-wrap justify-center gap-1.5 px-1">
+        <div className="flex flex-wrap justify-center gap-1.5 px-0.5">
           {profile.stackBadges.map((badge) => (
             <span
               key={badge}
-              className="px-2.5 py-[3px] text-[10px] font-medium rounded-full"
+              className="px-2 py-[2px] text-[9px] font-medium rounded-full whitespace-nowrap"
               style={{
                 background: "rgba(255,255,255,0.06)",
                 border: "1px solid rgba(255,255,255,0.10)",

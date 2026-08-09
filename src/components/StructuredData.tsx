@@ -12,7 +12,7 @@ const personSchema = {
     "MERN Stack Developer specializing in React, TypeScript, Node.js, Express.js, MongoDB, and modern JavaScript ecosystems. Building scalable full-stack web applications.",
   url: SITE_URL,
   image: `${SITE_URL}/assets/og-image.png`,
-  email: "umery101@gmail.com",
+  email: "codebyumer.dev@gmail.com",
   telephone: "+92 316 1395147",
   address: {
     "@type": "PostalAddress",
