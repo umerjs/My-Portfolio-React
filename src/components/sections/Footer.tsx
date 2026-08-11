@@ -23,7 +23,7 @@ export function Footer() {
             <div className="flex items-center gap-2 mb-4">
               <Code2 className="w-6 h-6 text-primary" />
               <a
-                href="https://umer-js.vercel.app"
+                href="https://umer-jsx.vercel.app"
                 className="text-xl font-bold no-underline hover:text-primary"
               >
                 Umer.Dev
