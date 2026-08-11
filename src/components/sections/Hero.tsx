@@ -87,8 +87,8 @@ export function Hero() {
             <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
           </a>
           <a
-            href="/Umer_Memon_Resume.pdf"
-            download="Umer_Memon_Resume.pdf"
+            href="/Muhammad_Umer_Resume.pdf"
+            download="Muhammad_Umer_Resume.pdf"
             className="inline-flex items-center justify-center rounded-full px-8 h-14 text-base font-medium bg-transparent border border-border/50 hover:bg-white/5 hover:border-primary/50 hover:scale-[1.02] active:scale-[0.98] transition-all text-foreground"
           >
             <Download className="mr-2 h-5 w-5" /> Resume
@@ -153,7 +153,7 @@ export function Hero() {
         </m.div>
       </m.div>
 
-      <HangingCard className="self-start md:ml-0 md:-mt-44 md:-ml-4 lg:-ml-8 max-w-full" />
+      <HangingCard className="self-start md:-mt-44 md:-ml-4 lg:-ml-8 max-w-full" />
     </section>
   );
 }

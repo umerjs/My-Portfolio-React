@@ -61,7 +61,7 @@ const CounterCard = memo(function CounterCard({
       viewport={{ once: true, margin: "-100px" }}
       className="rounded-xl border border-border bg-card/50 backdrop-blur-sm p-6 text-center hover:border-primary/50 hover:bg-card transition-all duration-300"
     >
-      <p className="font-syne text-4xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+      <p className="font-syne text-4xl font-bold bg-linear-to-r from-primary to-accent bg-clip-text text-transparent">
         {count}
         {suffix}
       </p>
@@ -132,12 +132,12 @@ export function About() {
             className="flex justify-center md:justify-start"
           >
             <div className="relative">
-              <div className="absolute -inset-1 rounded-2xl bg-gradient-to-br from-primary/40 via-accent/20 to-transparent blur-xl" />
-              <div className="relative h-64 w-64 overflow-hidden rounded-2xl border-2 border-primary/30 bg-gradient-to-br from-primary/20 to-accent/10">
+              <div className="absolute -inset-1 rounded-2xl bg-linear-to-br from-primary/40 via-accent/20 to-transparent blur-xl" />
+              <div className="relative h-64 w-64 overflow-hidden rounded-2xl border-2 border-primary/30 bg-linear-to-br from-primary/20 to-accent/10">
                 <img
                   src="https://avatars.githubusercontent.com/u/178928829?v=4"
                   alt="Muhammad Umer — MERN Stack Developer portrait"
-                  className="flex h-full w-full items-center justify-center font-syne text-6xl font-bold bg-gradient-to-br from-primary to-accent bg-clip-text text-transparent"
+                  className="flex h-full w-full items-center justify-center font-syne text-6xl font-bold bg-linear-to-br from-primary to-accent bg-clip-text text-transparent"
                 ></img>
               </div>
             </div>
@@ -216,7 +216,7 @@ export function About() {
                 variants={itemVariants}
                 className="group relative rounded-xl border border-border bg-card/50 backdrop-blur-sm p-6 text-center transition-all duration-300 hover:border-primary/50 hover:bg-card hover:shadow-lg hover:shadow-primary/10"
               >
-                <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                <div className="absolute inset-0 rounded-xl bg-linear-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                 <div className="relative">
                   <m.div
                     whileHover={{ scale: 1.1, rotate: 5 }}

@@ -15,7 +15,7 @@ export function ShineOverlay() {
       />
       {/* Subtle gold edge rim along top */}
       <div
-        className="absolute top-0 left-0 right-0 h-[1px]"
+        className="absolute top-0 left-0 right-0 h-px"
         style={{
           background:
             "linear-gradient(90deg, transparent 5%, rgba(201,169,106,0.45) 40%, rgba(201,169,106,0.45) 60%, transparent 95%)",

@@ -48,7 +48,7 @@ export function Experience() {
             className="relative pl-8 md:pl-12"
           >
             {/* Timeline Dot */}
-            <div className="absolute left-[-5px] top-1.5 w-2.5 h-2.5 rounded-full bg-primary ring-4 ring-background" />
+            <div className="absolute left-1.25 top-1.5 w-2.5 h-2.5 rounded-full bg-primary ring-4 ring-background" />
 
             <div className="flex flex-col md:flex-row md:items-baseline md:justify-between mb-2">
               <h3 className="text-xl font-bold text-foreground">{exp.role}</h3>

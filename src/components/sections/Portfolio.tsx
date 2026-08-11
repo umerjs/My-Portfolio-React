@@ -194,7 +194,7 @@ function ProjectPreview({ project }: { project: Project }) {
         <div className="w-3 h-3 rounded-full bg-yellow-500/70" />
         <div className="w-3 h-3 rounded-full bg-green-500/70" />
         <div
-          className="ml-3 flex-1 max-w-[200px] h-5 rounded-sm flex items-center px-2"
+          className="ml-3 flex-1 max-w-50 h-5 rounded-sm flex items-center px-2"
           style={{ background: "rgba(255,255,255,0.05)" }}
         >
           <span className="text-[10px] font-mono text-white/30 truncate">
@@ -295,7 +295,7 @@ function ProjectLightbox({
   return (
     <div
       ref={lightboxRef}
-      className="fixed inset-0 z-[9999] flex items-center justify-center p-6 md:p-12"
+      className="fixed inset-0 z-9999 flex items-center justify-center p-6 md:p-12"
       style={{ background: "rgba(0,0,0,0.92)", backdropFilter: "blur(12px)" }}
       onClick={onClose}
       role="dialog"
@@ -532,7 +532,7 @@ export default function Portfolio() {
               className="group block rounded-2xl overflow-hidden border bg-card transition-all duration-300 hover:scale-[1.01] cursor-pointer"
               style={{ borderColor: `${project.color}33` }}
             >
-              <div className="relative aspect-[16/10] overflow-hidden">
+              <div className="relative aspect-16/10 overflow-hidden">
                 <div className="absolute top-0 left-0 right-0 h-8 z-10 flex items-center gap-1.5 px-3 bg-black/60 backdrop-blur-sm">
                   <div className="w-2.5 h-2.5 rounded-full bg-red-500/80" />
                   <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/80" />
@@ -673,7 +673,7 @@ export default function Portfolio() {
         </div>
       </div>
 
-      <div className="absolute left-1/2 top-0 h-full w-px bg-white/[0.06]" />
+      <div className="absolute left-1/2 top-0 h-full w-px bg-white/6" />
 
       <div className="absolute right-0 top-0 flex h-full w-1/2 items-center justify-center px-6 py-8">
         <div className="relative h-[82vh] w-full">

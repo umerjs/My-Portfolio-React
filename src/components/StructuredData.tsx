@@ -5,8 +5,7 @@ const personSchema = {
   "@type": "Person",
   name: "Muhammad Umer",
   givenName: "Umer",
-  familyName: "Memon",
-  additionalName: "Muhammad Umer Memon",
+  additionalName: "Muhammad Umer",
   jobTitle: "MERN Stack Developer",
   description:
     "MERN Stack Developer specializing in React, TypeScript, Node.js, Express.js, MongoDB, and modern JavaScript ecosystems. Building scalable full-stack web applications.",
